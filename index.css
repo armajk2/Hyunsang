@@ -11,7 +11,6 @@
 }
 
 
-
 .menu {
   float: left;
   width: 20%;
@@ -21,14 +20,14 @@
 .menu a {
   background-color: #e5e5e5;
   padding: 8px;
-  margin-top: 7px;
+  margin-top: 20px;
   display: block;
   width: 100%;
+  height: 300px;
   color: black;
 }
 
 .main {
-  float: left;
   width: 60%;
   padding: 0 20px;
   text-align: center;
@@ -46,12 +45,15 @@
 }
 
 .copyrights{
+    bottom: 0;
+    padding: 15px;
     background-color:#e5e5e5;
     text-align:center;
-    padding:10px;
     font-size: 14px;
     margin-top:9px;
+    line-height: 28px;
     font: 'gotham';
+    height: 70px;
 }
 
 @media only screen and (max-width: 620px) {
