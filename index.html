@@ -5,8 +5,9 @@
 <link rel="stylesheet" href="./index.css">
 </head>
 
-<div style="background-color:#e5e5e5;padding:15px;text-align:center;">
-  <h1>정현상</h1>
+<div style="background-color:#303030;padding:1px;font-size:20px;color:rgb(235, 235, 235);text-align:center;">
+  <h2>Kookmin Univ. VCD
+  </h2>
 </div>
 
 <div style="overflow:auto">
@@ -16,18 +17,38 @@
     <p>정현상은 국민대학교 시각디자인학과 20학번으로서 현재 3학년으로 재학중에 있습니다. 현상상은 정현상과 같이 놀 수 있는 체험 서비스를 제공하고 있습니다. 현재 식사, 운동, 게임을 제공하고 있으며 언제나 최고의 서비스를 제공하고자 노력하고  있습니다 </p>
   </div>
 
-  <div class="menu">
-    <a>hello</a>
-    <a href="">
-      <div class="des">game</div>
-    </a>
-    <a href="">hello</a>
-    <a href="">hello</a>
+  <div class="service">서비스 목록</div>
+  <div class="line"></div>
 
+  <div class="menu"> 
+    <a class="game" onclick="showPopup()">게임</a>
+    <a class="sports">운동</a>
+    <a class="meal">식사</a>
+    <a class="prepared">서비스 준비중</a>
   </div>
 
+  <div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <ol>
+       <li>공포게임을 플레이 할 경우 갑작스러운 큰 소리 주의</li>
+       <li>과한 비난 금지, 어떠한 플레이든 따뜻하게 대할 것 </li>
+       <li>보드 게임 시 2시간이 넘어가는 순간 집중력 저하가 일어날 수 있음</li>
+       <li>어떠한 결과든 승복하고 받아들이기
+      </li>
+       <li>시간 연장은 최대 1시간 까지 가능</li>
+       <li>부정적인 태도 금지</li>
+       <li>때때로 승패를 받아들이는데 시간이 걸릴 수도 있음</li>
+       <li>즐기는 것을 최우선으로 하기</li>
+       <li>중간 중간 휴식시간 5분 필수</li>
+       <li>기물 파손 유의</li>
+      </ol>
+      <button>동의합니다</button>
+    </div>
+</div>
 
   <div class="right">
+    <div class="line2"></div>
     <p>상호: 정현상(주)</p>
     <p>사업자등록번호: 200-00-91600</p>
     <p>주소: 서울시 성북구 정릉로 77 국민대학교 </p>
@@ -39,5 +60,6 @@
 <div class="copyrights">
     © COPYRIGHT 2024. Jeonghyunsang. <br>All Rights Reserved.
 </div>
+<script src="./index.js"></script>
 </body>
 </html>
