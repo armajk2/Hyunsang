@@ -12,23 +12,35 @@
 
 
 .menu {
+  position: relative;
+  background-color: antiquewhite;
   float: left;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(2, 100px);
   grid-template-rows: repeat(2, 100px);
-  gap: 10px;
-
+  gap: 40px;
+  justify-content:space-evenly;
+  padding: 10px;
 }
 
 .menu a {
   background-color: #e5e5e5;
   padding: 8px;
-  margin-top: 20px;
   display: block;
-  width: 100%;
+  width: 100px;
+  height: 100px;
   color: black;
 
+}
+
+.menu a img {
+  position: relative;
+  right: 10%;
+  bottom: 10%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* Ensure the image covers the entire area */
 }
 
 .main {
@@ -55,7 +67,7 @@
     text-align:center;
     font-size: 14px;
     margin-top:3px;
-    line-height: 28px;
+    line-height: 25px;
     font: 'gotham';
     height: 70px;
 }
