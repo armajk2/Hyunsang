@@ -17,19 +17,15 @@
   float: left;
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(2, 100px);
-  grid-template-rows: repeat(2, 100px);
-  gap: 40px;
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: repeat(2, 200px);
+  gap: 10px;
   justify-content:space-evenly;
-  padding: 10px;
 }
 
 .menu a {
   background-color: #e5e5e5;
-  padding: 8px;
   display: block;
-  width: 100px;
-  height: 100px;
   color: black;
 
 }
@@ -37,16 +33,20 @@
 .menu a img {
   position: relative;
   right: 10%;
-  bottom: 10%;
+  bottom: 30%;
   width: 100px;
   height: 100px;
   object-fit: cover; /* Ensure the image covers the entire area */
 }
 
+
+
 .main {
   width: 60%;
   padding: 0 20px;
-  text-align: center;
+  text-align: left;
+  word-break: keep-all;
+  line-height: 25px;
 }
 
 .right {
