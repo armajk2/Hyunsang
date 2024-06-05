@@ -13,8 +13,12 @@
 
 .menu {
   float: left;
-  width: 20%;
   text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(2, 100px);
+  gap: 10px;
+
 }
 
 .menu a {
@@ -23,8 +27,8 @@
   margin-top: 20px;
   display: block;
   width: 100%;
-  height: 300px;
   color: black;
+
 }
 
 .main {
@@ -37,11 +41,11 @@
   color: rgb(103, 103, 103);
   float: left;
   width: 20%;
-  padding: 15px;
-  margin-top: 7px;
+  padding: 13px;
+  margin-top: 1px;
   text-align: center;
-  font-size: 9px;
-  
+  font-size: 13px;
+  line-height: 0.6;
 }
 
 .copyrights{
@@ -50,7 +54,7 @@
     background-color:#e5e5e5;
     text-align:center;
     font-size: 14px;
-    margin-top:9px;
+    margin-top:3px;
     line-height: 28px;
     font: 'gotham';
     height: 70px;
