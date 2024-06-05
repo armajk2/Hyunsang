@@ -8,6 +8,7 @@
 * {
     box-sizing: border-box;
     font-family: 'gotham';
+    overflow-x: hidden;
 }
 
 
