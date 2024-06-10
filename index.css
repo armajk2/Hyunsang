@@ -25,9 +25,9 @@
   float: left;
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(2, 200px);
-  grid-template-rows: repeat(2, 200px);
-  gap: 20px;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(2, 150px);
+  gap: 30px;
   justify-content:center;
   padding: 40px 0 100px 0;
   font-family: 'dongle';
@@ -44,7 +44,7 @@
 .game {
   position: relative; 
   display: inline-block;
-  line-height: 34vh;
+  line-height: 30vh;
   font-size: 60px;
   cursor: pointer;
 }
@@ -105,7 +105,7 @@
 .sports {
   position: relative; 
   display: inline-block;
-  line-height: 34vh;
+  line-height: 30vh;
   font-size: 60px;
 }
 
@@ -126,7 +126,7 @@
 .meal {
   position: relative; 
   display: inline-block;
-  line-height: 34vh;
+  line-height: 30vh;
   font-size: 60px;
 }
 
@@ -144,7 +144,7 @@
 }
 
 .prepared{
-  line-height: 34vh;
+  line-height: 30vh;
   background-color: #222222;
 }
 
