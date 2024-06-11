@@ -99,3 +99,18 @@ document.addEventListener("DOMContentLoaded", function() {
   // Update button text on page load
   updateButton();
 });
+
+///예약창뜨게하기
+
+function openbook() {
+  document.getElementById('book').style.display = 'block';
+}
+
+function closeBookingForm() {
+  document.getElementById('book').style.display = 'none';
+}
+
+function validateEmail(email) {
+  const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return pattern.test(email);
+}

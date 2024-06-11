@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sports</title>
+  <link rel="stylesheet" href="sports.css">
+</head>
+<body>
+  <div class="main">
+    <h2>현상상</h2>
+
+  </div>
+
+    <div class="title-header" >
+        <h2>Reservation
+        </h2>
+      </div>
+
+      <div class="date">
+        <div class="select">날짜선택</div>
+        <div class="select">   <button id="show-calendar" class = "button"></button></div>
+      </div>
+
+      <div class="box1">
+        <div class="img"></div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-item">11:00 ~ 12:00 <br>예약불가
+        </div>
+        <div class="grid-item">12:30 ~ 13:30<br>예약불가</div>
+        <div class="grid-item">14:00 ~ 15:00<br>예약불가</div>
+        <div class="grid-item">15:30 ~ 16:30<br>예약불가</div>
+        <div class="grid-item">17:00 ~ 18:00<br>예약불가</div>
+        <a div class="grid-item-1" onclick="openbook()">18:00 ~ 19:00<br>예약가능</a>
+        <div class="grid-item">20:00 ~ 21:00<br>예약불가</div>
+        <div class="grid-item">21:30 ~ 22:30<br>예약불가</div>
+
+      </div>
+
+      <div class="book" id="book">
+        <form method="POST" action="https://script.google.com/macros/s/AKfycbwc_3jknr_WPVfCVSzPpe7rDLboe7A4CP6cIKYg5FCCzgIILA7OLfsUEFjO_EZtzBgz/exec" data-email="phenominium@gmail.com">
+          <label for="name">이름:</label><br>
+          <input type="text" id="name" name="이름" required><br>
+
+          <label for="phone">전화번호:</label><br>
+          <input type="text" id="phone" name="phone" required placeholder="01082399865" oninput="this.value = this.value.replace(/\D/g, '')"><br>
+          
+          <label for="deliever">전달사항:</label><br>
+        <textarea placeholder=""></textarea>
+
+        <button onclick="submitBooking()">예약</button>
+        <button onclick="closeBookingForm()">취소</button>
+      </div>
+      <div style="display:none" class="thankyou_message">
+        <!-- You can customize the thankyou message by editing the code below -->
+        <h2><em>Thanks</em> for contacting us! We will get back to you soon!
+        </h2>
+       </div>
+    </form>
+
+      <div class="right">
+        <div class="line2"></div>
+        <p>상호: 정현상(주)</p>
+        <p>사업자등록번호: 200-00-91600</p>
+        <p>주소: 서울시 성북구 정릉로 77 국민대학교 </p>
+        <p>대표자: 정현상</p>
+        <p>이메일: phenominium@gmail.com</p>
+      </div>
+    </div>
+    
+    <div class="copyrights">
+        © COPYRIGHT 2024. Jeonghyunsang. <br>All Rights Reserved.
+    </div>
+    
+    
+   
+    <div id="popup-calendar" class="popup-calendar"></div>
+
+
+
+    
+    <script src="sports.js"></script>
+    <script data-cfasync="false" type="text/javascript"
+src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+</body>
+</html>

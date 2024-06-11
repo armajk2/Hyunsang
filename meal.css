@@ -1,0 +1,258 @@
+@font-face{
+    font-family: 'gotham';
+    src: url(./font/Gotham-Font/GothamLight.ttf);
+}
+
+@font-face{
+  font-family: 'tae';
+  src: url(./font/TAEBAEK\ milkyway.ttf);
+}
+
+
+
+* {
+    box-sizing: border-box;   
+    color: rgb(0, 0, 0);
+}
+
+body{
+    background-color: #626262;
+    margin: 0;
+    padding: 0;
+}
+
+.title-header {
+    text-align:center;
+}
+
+.box1{
+    width: 100%;
+    height: 300px;
+    justify-content: center;
+    text-align: center;
+    margin: 10px 0 0 0 ;
+    display: flex;
+    padding: 30px 0 0 0;
+}
+
+.img{
+    background-image: url(.//img/sports.jpg) ;
+    border-radius: 15px;
+    background-size: 100%;
+    width: 250px;
+    height: 250px;
+    position: relative;
+}
+
+.grid-container {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .grid-item {
+    background-color: rgb(221, 221, 221,0.5);
+    padding: 20px;
+    text-align: center;
+    font-family: 'tae';
+    font-size: 14px;
+    height: 60px;
+    align-items: center;
+    line-height: 16px;
+    border-radius: 15px;
+  }
+  .grid-item-1 {
+    background-color: rgb(221, 221, 221,1);
+    padding: 20px;
+    text-align: center;
+    font-family: 'tae';
+    font-size: 14px;
+    height: 60px;
+    align-items: center;
+    line-height: 16px;
+    border-radius: 15px;
+
+  }
+
+.title-header h2 {
+    font-size: 24px;
+    font-family: 'tae';
+    color:rgb(255, 255, 255);
+    line-height: 20px;
+    margin: 0;
+    padding: px 0 6px;
+}
+
+.main {
+    position: relative;
+    text-align: center;
+    word-break: keep-all;
+    line-height: 30px;
+    font-family: 'tae';
+    font-size: 30px;
+}
+
+.main h2{
+    color: white;
+    font-family: 'tae';
+}
+
+.date{
+    position: relative;
+    text-align: center;
+    word-break: keep-all;
+    font-family: 'tae';
+    justify-content: center;
+}
+
+.select{
+    position:relative;
+    /* background-color: #f0f0f0; */
+    width: 350px;
+    transform: translate(-50%,0);
+    left: 50%;
+    text-align: left;
+    font-size: 16px;
+    height: 20px;
+    padding: 0;
+    color: white;
+}
+
+.button{
+    background-color: #f2f2f2;
+    width: 100%;
+    border: 0;
+    height: 40px;
+    text-align: left;
+    font-size: 20px;
+    font-family: 'tae';
+}
+
+.popup-calendar {
+    display: none;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 3px solid #ccc;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.calendar {
+    font-family: 'tae';
+    border-collapse: collapse;
+    width: 320px;
+}
+
+.calendar th, .calendar td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.calendar td {
+    cursor: pointer;
+    font-size: 13px;
+    
+}
+
+.past {
+    background-color: rgba(83, 83, 83, 0.4);
+    color: rgb(2, 2, 2,0.3); 
+}
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+.selected {
+    background-color: rgb(176, 176, 255); /* 파란색으로 변경할 색상 */
+    color: white; /* 선택된 날짜의 텍스트 색상을 흰색으로 지정 */
+}
+.today {
+    background-color: rgb(255, 201, 201); 
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.line2 {
+    border-top: 3px solid #444444;
+    margin: 10px auto;
+    width: 95%;        
+    margin-bottom: 30px;
+  }
+
+.right {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    line-height: 0.6;
+    font-family: 'tae';
+    padding: 11px;
+    margin-top: 1px;
+  }
+.right p{
+    color: #ffffff;
+
+}
+
+.copyrights{
+    position: relative;
+    background-color:#ffffff;
+      color: #444444;
+      padding: 15px;
+      text-align:center;
+      font-size: 14px;
+      margin-top:3px;
+      line-height: 23px;
+      height: 70px;
+      margin: 3px 2% 2% 2%;
+      font-family: 'gotham';
+  }
+
+.book {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="text"],
+textarea {
+    font-family: tae;
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+label{
+    font-family: tae;
+    margin-bottom: 3;
+}
+
+button{
+    font-family: 'tae';
+    font-size: 20px;
+    margin-right: 10px;
+}
