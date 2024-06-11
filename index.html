@@ -5,8 +5,7 @@
 <link rel="stylesheet" href="./index.css">
 </head>
 
-<div style="background-color:#303030;padding:1px;font-size:20px;color:rgb(235, 235, 235);text-align:center;    font-family: 'gotham';
-">
+<div class="title-header" >
   <h2>Kookmin Univ. VCD
   </h2>
 </div>
@@ -22,17 +21,67 @@
   <div class="line"></div>
 
   <div class="menu"> 
-    <a class="game" onclick="showPopup()">게임</a>
-    <a class="sports">운동</a>
-    <a class="meal">식사</a>
-    <a class="prepared">서비스 준비중</a>
+    <a class="game" onclick="showPopup()"><div class="gg">게임</div></a>
+
+    <a class="sports" onclick="showPopup2()"><div class="gg">운동</div></a>
+
+    <a class="meal" onclick="showPopup1()"><div class="gg">식사</div></a>
+
+    <div class="popup1" id="popup1">
+      <div class="popup-meal">
+          <span class="close" onclick="closePopup1()">&times;</span>
+          <ol class="list">
+         <li>매운 요리나 바다향이 강한 음식(ex.굴,홍합 등) 불가</li>
+         <li>면류를 취식 시, 되도록 소리를 줄이기 </li>
+         <li>가능한 나무의자나 좌식 테이블보다는 쿠션 의자를 이용하기</li>
+         <li>혼잡한 시간대나 웨이팅이 있는 가게는 가급적 피하기
+        </li>
+         <li>입안에 음식물이 있는 상태로 대화하지 않기</li>
+         <li>같이 수저 세팅하거나, 물 세팅 도와줄 것</li>
+         <li>메뉴 선정을 쉽게 못함으로 주도적으로 메뉴 선정 할 것</li>
+         <li>음식 사진 촬영시 1분 이상 찍지 않기</li>
+         <li>되도록 다양한 메뉴 시키기</li>
+         <li>낮에는 술 마시지 않기</li>
+        </ol>
+        <button class="button">동의합니다</button>
+      </div>
   </div>
+    <a class="prepared"><div class="gg1">서비스 준비중</div></a>
+  </div>
+
+
+  <div class="popup2" id="popup2">
+    <div class="popup-sports">
+        <span class="close" onclick="closePopup2()">&times;</span>
+        <ol class="list">
+       <li>목적지까지의 이동시간이 1시간 이내만 가능 
+      </li>
+       <li>처음하는 운동일 시, 최소 휴식시간 (20분) 보장 필수
+ </li>
+       <li>이틀연속 이용은 불가능 (최소 하루 휴식 보장)
+      </li>
+       <li>비상상황에 대처가 불가능함으로 운동 전에
+        스스로 스트레칭 하고 안전사고에 유의
+      </li>
+       <li>하루에 두번 이상 이용 불가
+      </li>
+       <li>목숨 걸고 감정적으로 하지않기
+      </li>
+       <li>아프거나 힘들경우 즉시 보고</li>
+       <li>운동 내기를 할 경우 서로가 부담되지않는 선에서 가능</li>
+       <li>웃으면서 즐길 수 있을정도로만 하기</li>
+       <li>기온이 30도 이상일 경우, 야외 활동 불가 (수영장 등 예외)</li>
+      </ol>
+      <button class="button" onclick="agree()">동의합니다</button>
+    </div>
+</div>
+
 
   <div class="popup" id="popup">
     <div class="popup-content">
         <span class="close" onclick="closePopup()">&times;</span>
-        <ol>
-       <li>공포게임을 플레이 할 경우 갑작스러운 큰 소리 주의</li>
+        <ol class="list">
+        <li>공포게임을 플레이 할 경우 갑작스러운 큰 소리 주의</li>
        <li>과한 비난 금지, 어떠한 플레이든 따뜻하게 대할 것 </li>
        <li>보드 게임 시 2시간이 넘어가는 순간 집중력 저하가 일어날 수 있음</li>
        <li>어떠한 결과든 승복하고 받아들이기
@@ -44,9 +93,10 @@
        <li>중간 중간 휴식시간 5분 필수</li>
        <li>기물 파손 유의</li>
       </ol>
-      <button>동의합니다</button>
+      <button class="button">동의합니다</button>
     </div>
 </div>
+
 
   <div class="right">
     <div class="line2"></div>
