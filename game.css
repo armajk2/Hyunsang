@@ -9,6 +9,21 @@
 }
 
 
+.title-header {
+    text-align:center;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    padding: 100px;
+  }
+  
+  .title-header h2 {
+    font-size: 24px;
+    font-family: 'gotham';
+    color:rgb(221, 17, 17);
+    line-height: 20px;
+    margin: 0;
+    padding: 20px 0 6px;
+  }
 
 * {
     box-sizing: border-box;   
@@ -17,8 +32,6 @@
 
 body{
     background-color: #626262;
-    margin: 0;
-    padding: 0;
 }
 
 .title-header {

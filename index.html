@@ -5,49 +5,66 @@
 <link rel="stylesheet" href="./index.css">
 </head>
 
-<div class="title-header" >
+
+<div class="title-header">
   <h2>Kookmin Univ. VCD
   </h2>
 </div>
 
-<div style="overflow:auto">
 
   <div class="main">
-    <h2>현상상</h2>
-    <p>정현상은 국민대학교 시각디자인학과 20학번으로서 현재 3학년으로 재학중에 있습니다. 현상상은 정현상과 같이 놀 수 있는 체험 서비스를 제공하고 있습니다. 현재 식사, 운동, 게임을 제공하고 있으며 언제나 최고의 서비스를 제공하고자 노력하고  있습니다 </p>
+      <div class="click">
+    <h2 onclick="showInfo1()">현상상</h2>
+    <h2 onclick="showInfo2()">이용 방법</h2>
+    <h2 onclick="showInfo3()">현상상</h2>
+    <h2 onclick="showInfo4()">삼행시</h2>
+      </div>
+      <div class="info1" id="info1"><p>정현상은 국민대학교 시각디자인학과 20학번으로서 현재 3학년으로 재학중에 있습니다. 현상상은 정현상과 같이 놀 수 있는 체험 서비스를 제공하고 있습니다. 현재 식사, 운동, 게임을 제공하고 있으며 언제나 최고의 서비스를 제공하고자 노력하고  있습니다 </p></div>
+      <div class="info2" id="info2"><p><ol>
+        <li>원하는 서비스를 선택한다</li>
+        <li>유의사항을 꼼꼼히 읽어본다</li>    <li>동의하기를 누른 후, 원하는 날짜 및 시간대를 선택한다</li>    
+        <li>필수 정보를 기입하고 답장이 오기를 기다린다</li>
+      </ol> </p></div>
+      <div class="info3" id="info3"><p>반갑습니다 </p></div>
+      <div class="info4" id="info4"><p>정:정말힘들다 <br>현:현상이랑 친해지는 건 <br> 상: 상담문의 </p></div>
   </div>
 
   <div class="service">서비스 목록</div>
-  <div class="line"></div>
 
   <div class="menu"> 
-    <a class="game" onclick="showPopup()"><div class="gg">게임</div></a>
+    <a class="game" onclick="showPopup()">
+    </a>
+    <div class="gg">게임</div>
 
-    <a class="sports" onclick="showPopup2()"><div class="gg">운동</div></a>
+    <a class="sports" onclick="showPopup2()"></a>
+    <div class="gg">운동</div>
 
-    <a class="meal" onclick="showPopup1()"><div class="gg">식사</div></a>
+    <a class="meal" onclick="showPopup1()"></a>
+    <div class="gg">식사</div>
 
-    <div class="popup1" id="popup1">
-      <div class="popup-meal">
-          <span class="close" onclick="closePopup1()">&times;</span>
-          <ol class="list">
-         <li>매운 요리나 바다향이 강한 음식(ex.굴,홍합 등) 불가</li>
-         <li>면류를 취식 시, 되도록 소리를 줄이기 </li>
-         <li>가능한 나무의자나 좌식 테이블보다는 쿠션 의자를 이용하기</li>
-         <li>혼잡한 시간대나 웨이팅이 있는 가게는 가급적 피하기
-        </li>
-         <li>입안에 음식물이 있는 상태로 대화하지 않기</li>
-         <li>같이 수저 세팅하거나, 물 세팅 도와줄 것</li>
-         <li>메뉴 선정을 쉽게 못함으로 주도적으로 메뉴 선정 할 것</li>
-         <li>음식 사진 촬영시 1분 이상 찍지 않기</li>
-         <li>되도록 다양한 메뉴 시키기</li>
-         <li>낮에는 술 마시지 않기</li>
-        </ol>
-        <a href="./meal.html" button class="button">동의합니다</a>
-      </div>
-  </div>
     <a class="prepared"><div class="gg1">서비스 준비중</div></a>
   </div>
+
+  <div class="popup1" id="popup1">
+    <div class="popup-meal">
+        <span class="close" onclick="closePopup1()">&times;</span>
+        <ol class="list">
+          <li>매운 요리나 바다향이 강한 음식(ex.굴, 홍합 등) 불가</li>
+          <li>면류를 취식 시, 되도록 소리를 줄이기 </li>
+          <li>가능한 나무 의자나 좌식 테이블보다는 쿠션 의자를 이용하기</li>
+          <li>혼잡한 시간대나 웨이팅이 있는 가게는 가급적 피하기
+         </li>
+          <li>입안에 음식물이 있는 상태로 대화하지 않기</li>
+          <li>같이 수저 세팅하거나, 물 세팅 도와줄 것</li>
+          <li>메뉴 선정을 쉽게 못함으로 주도적으로 메뉴 선정할 것</li>
+          <li>음식 사진 촬영 시 1분 이상 찍지 않기</li>
+          <li>되도록 다양한 메뉴 시키기</li>
+          <li>낮에는 술 마시지 않기</li>
+         </ol>
+      <a href ="meal.html"button class="button" onclick="agree()">동의합니다</a>
+    </div>
+</div>
+
 
 
   <div class="popup2" id="popup2">
@@ -56,20 +73,20 @@
         <ol class="list">
        <li>목적지까지의 이동시간이 1시간 이내만 가능 
       </li>
-       <li>처음하는 운동일 시, 최소 휴식시간 (20분) 보장 필수
+       <li>처음 하는 운동일 시, 최소 휴식시간 (20분) 보장 필수
  </li>
-       <li>이틀연속 이용은 불가능 (최소 하루 휴식 보장)
+       <li>이틀 연속 이용은 불가능 (최소 하루 휴식 보장)
       </li>
-       <li>비상상황에 대처가 불가능함으로 운동 전에
-        스스로 스트레칭 하고 안전사고에 유의
+       <li>비상 상황에 대처가 불가능함으로 운동 전에
+        스스로 스트레칭하고 안전사고에 유의
       </li>
-       <li>하루에 두번 이상 이용 불가
+       <li>하루에 두 번 이상 이용 불가
       </li>
-       <li>목숨 걸고 감정적으로 하지않기
+       <li>목숨 걸고 감정적으로 하지 않기
       </li>
        <li>아프거나 힘들경우 즉시 보고</li>
-       <li>운동 내기를 할 경우 서로가 부담되지않는 선에서 가능</li>
-       <li>웃으면서 즐길 수 있을정도로만 하기</li>
+       <li>운동 내기를 할 경우 서로가 부담되지 않는 선에서 가능</li>
+       <li>웃으면서 즐길 수 있을 정도로만 하기</li>
        <li>기온이 30도 이상일 경우, 야외 활동 불가 (수영장 등 예외)</li>
       </ol>
       <a href ="sports.html"button class="button" onclick="agree()">동의합니다</a>
@@ -81,17 +98,17 @@
     <div class="popup-content">
         <span class="close" onclick="closePopup()">&times;</span>
         <ol class="list">
-        <li>공포게임을 플레이 할 경우 갑작스러운 큰 소리 주의</li>
+        <li>공포게임을 할 경우 갑작스러운 큰 소리 주의</li>
        <li>과한 비난 금지, 어떠한 플레이든 따뜻하게 대할 것 </li>
        <li>보드 게임 시 2시간이 넘어가는 순간 집중력 저하가 일어날 수 있음</li>
        <li>어떠한 결과든 승복하고 받아들이기
       </li>
-       <li>시간 연장은 최대 1시간 까지 가능</li>
+       <li>시간 연장은 최대 1시간까지 가능</li>
        <li>부정적인 태도 금지</li>
-       <li>때때로 승패를 받아들이는데 시간이 걸릴 수도 있음</li>
+       <li>때때로 승패를 받아들이는 데 시간이 걸릴 수도 있음</li>
        <li>즐기는 것을 최우선으로 하기</li>
        <li>중간 중간 휴식시간 5분 필수</li>
-       <li>기물 파손 유의</li>
+       <li>화난다고 물건 험하게 다루지않기</li>
       </ol>
       <a href="./game.html" button class="button">동의합니다</a>
     </div>
@@ -99,7 +116,6 @@
 
 
   <div class="right">
-    <div class="line2"></div>
     <p>상호: 현상상(주)</p>
     <p>사업자등록번호: 200-00-91600</p>
     <p>주소: 서울시 성북구 정릉로 77 국민대학교 </p>
@@ -108,9 +124,19 @@
   </div>
 </div>
 
+
 <div class="copyrights">
-    © COPYRIGHT 2024. Jeonghyunsang. <br>All Rights Reserved.
+    © COPYRIGHT 2024. Jeonghyunsang. <br>All Rights Reserved.<br>
+    <a>고객센터</a>
+    <h3>운영시간: 12:00 ~ 17:00</h3>
+  
 </div>
+
+<div class="ask">
+
+</div>
+
+
 <script src="./index.js"></script>
 </body>
 </html>
