@@ -20,7 +20,7 @@
 
 
 body{
-  background-color: #fff3f3;
+  background-color: #ffffff;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -52,14 +52,14 @@ body{
 }
 
 .carousel-container {
-  height: 300px;
+  height: 200px;
   position: relative;
-  width: 500px; /* Set the width of the carousel */
+  width: 100%; /* Set the width of the carousel */
   overflow-x: scroll; /* Enable horizontal scrolling */
   overflow-y: hidden; /* Hide vertical overflow */
   white-space: nowrap; /* Prevent slides from wrapping */
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  margin: 0 auto; /* Center the carousel horizontally */
+  padding: 30px auto; /* Center the carousel horizontally */
   position: relative; /* Ensure relative positioning for absolute slides */
 }
 
@@ -265,7 +265,7 @@ label{
 .right {
   float: left;
   width: 20%;
-  padding: 11px;
+  padding: 15px;
   margin-top: 1px;
   text-align: left;
   font-size: 12px;
@@ -273,7 +273,6 @@ label{
   font-family: 'dongle';
   border-top: 1px solid black;
 }
-
 
 
 .copyrights{
@@ -287,6 +286,10 @@ label{
     height: 100px;
     font-family: 'gotham';
     justify-content: left;
+}
+
+.copyrights a{
+  font-family: 'tae';
 }
 
 @media only screen and (max-width: 620px) {
