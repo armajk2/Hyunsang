@@ -17,13 +17,24 @@
   </h2>
 </div>
 <div class="date">
-
-  <div class="select">   <button id="show-calendar" class = "button"></button></div>
+<div class="select">   
+  <button id="show-calendar" class = "button"></button></div>
 </div>
 
-<div class="box1">
-  <div class="img"></div>
+
+
+
+<div class="carousel-container">
+  <div class="carousel">
+      <div class="slide"><img src="/img/s1.jpg" alt="Slide 1"></div>
+      <div class="slide"><img src="/img/s2.JPG" alt="Slide 2"></div>
+      <div class="slide"><img src="/img/s3.JPG" alt="Slide 3"></div>
+      <div class="slide"><img src="/img/s4.jpg" alt="Slide 1"></div>
+      <div class="slide"><img src="/img/s5.JPG" alt="Slide 2"></div>
+      <!-- Add more slides as needed -->
+  </div>
 </div>
+
 
 <div class="grid-container">
   <div class="grid-item" onclick="selectTime('11:00 ~ 12:00')">11:00 ~ 12:00</div>
@@ -39,18 +50,25 @@
 
 <div class="book" id="book" style="display: none;">
   <form id="bookingForm">
+    <label for="service">서비스:</label><br>
+    <input type="text" id="service" name="service" value="운동" readonly><br>
+
+    <label for="selectedDate">선택한 날짜:</label><br>
+<input type="text" id="selectedDate" name="selectedDate" readonly><br>
+
+  
     <label for="selectedTime">선택한 시간:</label><br>
     <input type="text" id="selectedTime" name="selectedTime" readonly><br>
-
+  
     <label for="name">이름:</label><br>
     <input type="text" id="name" name="name" required placeholder="홍길동"><br>
-
+  
     <label for="phone">전화번호:</label><br>
     <input type="text" id="phone" name="phone" required placeholder="01000000000" oninput="this.value = this.value.replace(/\D/g, '')"><br>
-
+  
     <label for="deliver">전달사항:</label><br>
     <textarea id="deliver" name="deliver" placeholder="전달사항을 입력하세요"></textarea><br>
-
+  
     <button type="submit" class="res">예약</button>
     <button type="button" onclick="closeBookingForm()" class="cancel">취소</button>
   </form>
@@ -92,7 +110,15 @@
           <div class="r">힘들다고 약속된 시간보다 한시간 일찍 집에가요;;
           </div>
         </div>
-    
+        <div class="re">
+          <div class="p">익명의 게시자</div>
+          <div class="r">등산하다가 고라니 만났는데 버리고 도망쳤어요;;;;;;;;
+
+          </div>
+        </div>
+
+
+
     </div>
 
 

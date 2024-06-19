@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", function() {
           } else if (year === currentYear && month === currentMonth && count === currentDay) {
             table += `<td class="today">${count}</td>`; // 오늘 날짜
           } else {
-            if (i === 0 || i === 6) {
-              table += `<td class="weekend">${count}</td>`; // 주말 (토요일, 일요일)을 선택할 수 없음
+            if (count % 2 !== 0) {
+              table += `<td class="odd-day">${count}</td>`; // 홀수 날짜를 선택할 수 없음
             } else {
               if (selectedDateElement && parseInt(selectedDateElement.textContent) === count) {
                 table += `<td class="selected">${count}</td>`; // 선택된 날짜
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // 초기화 함수 - 내일 날짜로 버튼 업데이트
   function updateButton() {
     const tomorrowDate = new Date();
-    tomorrowDate.setDate(tomorrowDate.getDate() + 1); // 오늘 날짜에 1일 추가하여 내일로 설정
+    tomorrowDate.setDate(tomorrowDate.getDate() ); // 오늘 날짜에 1일 추가하여 내일로 설정
     const formattedDate = tomorrowDate.toISOString().split('T')[0]; // 내일 날짜의 ISO 형식의 날짜 생성
     showCalendarButton.textContent = formattedDate; // "show-calendar" 버튼에 내일 날짜 표시
   }
@@ -209,3 +209,14 @@ function closeMessage() {
   successDiv.style.display = 'none';
   bookingDiv.style.display = 'none';
 }
+
+function selectTime(time) {
+  // Get the selected date from the calendar button text
+  const selectedDateText = document.getElementById('show-calendar').textContent.trim();
+  document.getElementById('selectedTime').value = time;
+  document.getElementById('selectedDate').value = selectedDateText;
+  document.getElementById('book').style.display = 'block';
+}
+
+const formData = new FormData(bookingForm);
+

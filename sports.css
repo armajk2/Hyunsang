@@ -51,24 +51,37 @@ body{
   margin-bottom: 20px;
 }
 
-.box1{
-  width: 100%;
+.carousel-container {
   height: 300px;
-  justify-content: center;
-  text-align: center;
-  margin: 10px 0 0 0 ;
-  display: flex;
-  padding: 30px 0 0 0;
+  position: relative;
+  width: 500px; /* Set the width of the carousel */
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical overflow */
+  white-space: nowrap; /* Prevent slides from wrapping */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  margin: 0 auto; /* Center the carousel horizontally */
+  position: relative; /* Ensure relative positioning for absolute slides */
 }
 
-.img{
-  background-image: url(.//img/sports.jpg) ;
-  border-radius: 15px;
-  background-size: 100%;
-  width: 250px;
-  height: 250px;
-  position: relative;
+.carousel {
+  display: inline-flex; /* Display slides in a row */
+  width: max-content; /* Allow slides to stretch to their content */
 }
+
+.slide {
+  flex: 0 0 100px; /* Set slide width to match container */
+  margin-right: 10px; /* Optional: Adjust spacing between slides */
+  transition: transform 0.5s ease; /* Smooth slide transition */
+}
+
+.slide img {
+  width: 200px; /* Ensure images fill their containers */
+  height: 200px;
+}
+
+
+
+
 
 .grid-container {
   margin: 20px;
@@ -112,6 +125,7 @@ body{
 }
 
 .date{
+  margin-bottom: 50px;
   position: relative;
   text-align: center;
   word-break: keep-all;
@@ -177,7 +191,7 @@ body{
   color: rgb(2, 2, 2,0.3); 
 }
 
-.calendar .weekend {
+.calendar .odd-day {
   background-color: rgba(83, 83, 83, 0.4);
   color: rgba(2, 2, 2, 0.3);
 }
