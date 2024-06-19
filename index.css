@@ -139,9 +139,8 @@ body{
 }
 
 .popup-content {
-  background-color: rgb(189, 189, 189);
+  background-color: rgb(249, 249, 249);
   border: 1px solid black;
-  width: 400px;
   padding: 20px;
   position: absolute;
   top: 50%;
@@ -151,12 +150,17 @@ body{
   flex-direction: column;
   line-height: 40px;
   font-size: 20px;
+  height: 80%;
+  width: 95%;
+  overflow: auto;
 }
 
 .popup-meal {
-  background-color: rgb(189, 189, 189);
+  background-color: rgb(249, 249, 249);
   border: 1px solid black;
-  width: 400px;
+  height: 80%;
+  width: 95%;
+  overflow: auto;
   padding: 20px;
   position: absolute;
   top: 50%;
@@ -170,9 +174,11 @@ body{
 
 
 .popup-sports {
-  background-color: rgb(189, 189, 189);
+  background-color: rgb(249, 249, 249);
   border: 1px solid black;
-  width: 400px;
+  height: 80%;
+  width: 95%;
+  overflow: auto;
   padding: 20px;
   position: absolute;
   top: 50%;
@@ -191,6 +197,13 @@ body{
   right: 0%;
   cursor: pointer;
   font-size: 50px;
+
+}
+
+.warning{
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid black;
 }
 
 
@@ -365,21 +378,31 @@ body{
   align-items: center;
 }
 
+.yn{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+}
 
-.button{
+.button, .button1{
+  position: relative;
   width: 100px;
   height: 40px;
   color: rgb(0, 0, 0);
-  position: relative;
-  left: 50%;
-  transform: translate(-50%,-0%);
   font-size: 18px;
-  line-height: 34px;
+  line-height: 40px;
   font-family: 'dongle';
-  box-shadow: rgb(0, 0, 0,0.9) 0px 3px 6px 0px;
+  border: 1px solid black;
+  /* box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.9); */
   text-align: center;
-  background-color: rgb(255, 255, 255);
 }
+
+.button1{
+  left: 30%;
+}
+
 
 a{
   text-decoration: none;

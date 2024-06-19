@@ -47,7 +47,7 @@
 
   <div class="popup1" id="popup1">
     <div class="popup-meal">
-        <span class="close" onclick="closePopup1()">&times;</span>
+      <div class="warning">유의사항</div>
         <ol class="list">
           <li>매운 요리나 바다향이 강한 음식(ex.굴, 홍합 등) 불가</li>
           <li>면류를 취식 시, 되도록 소리를 줄이기 </li>
@@ -61,7 +61,10 @@
           <li>되도록 다양한 메뉴 시키기</li>
           <li>낮에는 술 마시지 않기</li>
          </ol>
-      <a href ="meal.html"button class="button" onclick="agree()">동의합니다</a>
+         <div class="yn">
+          <span class="button1" onclick="closePopup1()">반대합니다</span>
+          <a href="./meal.html" class="button">동의합니다</a>
+      </div>
     </div>
 </div>
 
@@ -69,7 +72,7 @@
 
   <div class="popup2" id="popup2">
     <div class="popup-sports">
-        <span class="close" onclick="closePopup2()">&times;</span>
+      <div class="warning">유의사항</div>
         <ol class="list">
        <li>목적지까지의 이동시간이 1시간 이내만 가능 
       </li>
@@ -89,14 +92,17 @@
        <li>웃으면서 즐길 수 있을 정도로만 하기</li>
        <li>기온이 30도 이상일 경우, 야외 활동 불가 (수영장 등 예외)</li>
       </ol>
-      <a href ="sports.html"button class="button" onclick="agree()">동의합니다</a>
+      <div class="yn">
+        <span class="button1" onclick="closePopup2()">반대합니다</span>
+        <a href="./sports.html" class="button">동의합니다</a>
+    </div>
     </div>
 </div>
 
 
   <div class="popup" id="popup">
     <div class="popup-content">
-        <span class="close" onclick="closePopup()">&times;</span>
+        <div class="warning">유의사항</div>
         <ol class="list">
         <li>공포게임을 할 경우 갑작스러운 큰 소리 주의</li>
        <li>과한 비난 금지, 어떠한 플레이든 따뜻하게 대할 것 </li>
@@ -110,7 +116,10 @@
        <li>중간 중간 휴식시간 5분 필수</li>
        <li>화난다고 물건 험하게 다루지않기</li>
       </ol>
-      <a href="./game.html" button class="button">동의합니다</a>
+      <div class="yn">
+        <span class="button1" onclick="closePopup()">반대합니다</span>
+        <a href="./game.html" class="button">동의합니다</a>
+    </div>
     </div>
 </div>
 

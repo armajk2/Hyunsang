@@ -24,6 +24,7 @@ body{
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .title-header {
@@ -73,34 +74,25 @@ body{
   margin: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 15px;
+}
 
+
+.grid-container > * {
+  border: 1px solid black;
 }
 
 .grid-item {
-  background-color: rgb(221, 221, 221,0.5);
+  background-color: rgb(255, 255, 255);
   padding: 20px;
   text-align: center;
   font-family: 'tae';
-  font-size: 14px;
+  font-size: 16px;
   height: 60px;
   align-items: center;
   line-height: 16px;
-  border-radius: 15px;
-}
-.grid-item-1 {
-  background-color: rgb(221, 221, 221,1);
-  padding: 20px;
-  text-align: center;
-  font-family: 'tae';
-  font-size: 14px;
-  height: 60px;
-  align-items: center;
-  line-height: 16px;
-  border-radius: 15px;
 
 }
-
 
 .main {
   position: relative;
@@ -124,7 +116,6 @@ body{
   text-align: center;
   word-break: keep-all;
   font-family: 'tae';
-  justify-content: center;
 }
 
 .select{
@@ -141,13 +132,14 @@ body{
 }
 
 .button{
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   width: 100%;
   border: 0;
   height: 40px;
   text-align: left;
   font-size: 20px;
   font-family: 'tae';
+  border: 1px solid #000000;
 }
 
 .popup-calendar {
@@ -184,6 +176,12 @@ body{
   background-color: rgba(83, 83, 83, 0.4);
   color: rgb(2, 2, 2,0.3); 
 }
+
+.calendar .weekend {
+  background-color: rgba(83, 83, 83, 0.4);
+  color: rgba(2, 2, 2, 0.3);
+}
+
 
 @media only screen and (max-width: 620px) {
 /* For mobile phones: */
@@ -227,12 +225,13 @@ a{
   padding: 30px;
   border: 2px solid #ccc;
   border-radius: 5px;
+  width: 95%;
 }
 
 input[type="text"],
 textarea {
   font-family: tae;
-width: 200px;
+width: 95%;
 padding: 10px;
 margin-bottom: 10px;
 box-sizing: border-box;
@@ -244,7 +243,7 @@ margin-top: 10px;
 
 label{
   font-family: tae;
-  margin-bottom: 3;
+  margin-bottom: 10p;
 }
 
 
@@ -331,4 +330,63 @@ a{
 
 .ask a{
   font-size: 14pt;
+}
+
+.res, .cancel{
+  color: rgb(0, 0, 0);
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+  font-family: 'tae';
+}
+
+.sec{
+  width: 100%;
+  border-top: 1px solid black;
+}
+
+.review-section{
+  display: grid;
+  grid-template-columns: 1fr 3fr; 
+  gap: 20px;
+  margin: 10px 20px 20px 20px;
+  padding-top: 20px;
+  font-family: 'tae';
+  overflow-wrap: break-word;
+  word-break:keep-all;
+}
+
+.pp{
+  text-align: center;
+}
+
+.re{
+  margin-bottom: 20pt;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+.p{
+  font-size: 12pt;
+  margin-bottom: 10px;
+}
+.r{
+  font-size: 12pt;
+  line-height: 16pt;
+}
+
+#successMessage{
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  height: 50px;
+  width: 60%;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  font-family: 'tae';
+  margin-top: 10px;
+  font-size: 16pt;
+  line-height: 32pt;
 }

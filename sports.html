@@ -12,11 +12,12 @@
 </div>
 
 <div class="reservation" >
+
   <h2> 운동 예약하기
   </h2>
 </div>
 <div class="date">
-  <div class="select">날짜선택</div>
+
   <div class="select">   <button id="show-calendar" class = "button"></button></div>
 </div>
 
@@ -25,40 +26,82 @@
 </div>
 
 <div class="grid-container">
-  <div class="grid-item">11:00 ~ 12:00 <br>예약불가
-  </div>
-  <div class="grid-item">12:30 ~ 13:30<br>예약불가</div>
-  <div class="grid-item">14:00 ~ 15:00<br>예약불가</div>
-  <div class="grid-item">15:30 ~ 16:30<br>예약불가</div>
-  <div class="grid-item">17:00 ~ 18:00<br>예약불가</div>
-  <a div class="grid-item-1" onclick="openbook()">18:00 ~ 19:00<br>예약가능</a>
-  <div class="grid-item">20:00 ~ 21:00<br>예약불가</div>
-  <div class="grid-item">21:30 ~ 22:30<br>예약불가</div>
-
+  <div class="grid-item" onclick="selectTime('11:00 ~ 12:00')">11:00 ~ 12:00</div>
+  <div class="grid-item" onclick="selectTime('12:30 ~ 13:30')">12:30 ~ 13:30</div>
+  <div class="grid-item" onclick="selectTime('14:00 ~ 15:00')">14:00 ~ 15:00</div>
+  <div class="grid-item" onclick="selectTime('15:30 ~ 16:30')">15:30 ~ 16:30</div>
+  <div class="grid-item" onclick="selectTime('17:00 ~ 18:00')">17:00 ~ 18:00</div>
+  <div class="grid-item" onclick="selectTime('18:00 ~ 19:00')">18:00 ~ 19:00</div>
+  <div class="grid-item" onclick="selectTime('20:00 ~ 21:00')">20:00 ~ 21:00</div>
+  <div class="grid-item" onclick="selectTime('21:30 ~ 22:30')">21:30 ~ 22:30</div>
 </div>
 
-<div class="book" id="book">
-  <form method="POST" action="https://script.google.com/macros/s/AKfycbwc_3jknr_WPVfCVSzPpe7rDLboe7A4CP6cIKYg5FCCzgIILA7OLfsUEFjO_EZtzBgz/exec" data-email="phenominium@gmail.com">
+
+<div class="book" id="book" style="display: none;">
+  <form id="bookingForm">
+    <label for="selectedTime">선택한 시간:</label><br>
+    <input type="text" id="selectedTime" name="selectedTime" readonly><br>
+
     <label for="name">이름:</label><br>
-    <input type="text" id="name" name="이름" required><br>
+    <input type="text" id="name" name="name" required placeholder="홍길동"><br>
 
     <label for="phone">전화번호:</label><br>
-    <input type="text" id="phone" name="phone" required placeholder="01082399865" oninput="this.value = this.value.replace(/\D/g, '')"><br>
+    <input type="text" id="phone" name="phone" required placeholder="01000000000" oninput="this.value = this.value.replace(/\D/g, '')"><br>
 
-    <label for="deliever">전달사항:</label><br>
-  <textarea placeholder=""></textarea>
+    <label for="deliver">전달사항:</label><br>
+    <textarea id="deliver" name="deliver" placeholder="전달사항을 입력하세요"></textarea><br>
 
-  <button onclick="submitBooking()">예약</button>
-  <button onclick="closeBookingForm()">취소</button>
+    <button type="submit" class="res">예약</button>
+    <button type="button" onclick="closeBookingForm()" class="cancel">취소</button>
+  </form>
 </div>
-<div style="display:none" class="thankyou_message">
-  <!-- You can customize the thankyou message by editing the code below -->
-  <h2><em>Thanks</em> for contacting us! We will get back to you soon!
-  </h2>
- </div>
-</form>
 
-  
+  <div id="successMessage" style="display: none;" onclick="closeMessage()">
+    예약이 완료되었습니다.
+  </div>
+
+  <div id="errorMessage" style="display: none;">
+    예약 처리 중 오류가 발생했습니다.
+  </div>
+</div>
+
+
+<div class="sec">
+  <div class="review-section">
+  <div class="pp">후기 </div>
+<div class="rev">
+    <div class="re">
+      <div class="p">익명의 게시자</div>
+      <div class="r">탁구를 쳤는데 내가 잘 못하니까 봐주셨음
+        감사합니다
+        굿 스포츠맨쉽
+      </div>
+    </div>
+        <div class="re">
+          <div class="p">익명의 게시자</div>
+          <div class="r">두시간동안 공차는 거 연습했는데 왜이렇게 못하나요 이사람
+          </div>
+        </div>
+        <div class="re">
+          <div class="p">익명의 게시자</div>
+          <div class="r">생각보다 산 잘타는데?
+          </div>
+        </div>
+        <div class="re">
+          <div class="p">익명의 게시자</div>
+          <div class="r">힘들다고 약속된 시간보다 한시간 일찍 집에가요;;
+          </div>
+        </div>
+    
+    </div>
+
+
+
+
+  </div>
+  </div>
+
+</div>
 
 
   <div class="right">
@@ -84,5 +127,7 @@
 <div id="popup-calendar" class="popup-calendar"></div>
 
 <script src="./sports.js"></script>
+<script data-cfasync="false" type="text/javascript"
+src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 </body>
 </html>
