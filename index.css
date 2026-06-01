@@ -1,443 +1,517 @@
-@font-face{
+/* ==========================================
+   1. 서체 및 글로벌 기본 설정
+   ========================================== */
+@font-face {
     font-family: 'gotham';
-    src: url(./font/Gotham-Font/GothamLight.ttf);
+    src: url("./font/Gotham-Font/GothamLight.ttf");
+}
+@font-face {
+    font-family: 'dongle';
+    src: url("./font/TAEBAEK\ milkyway.ttf");
+}
+@font-face {
+    font-family: 'tae';
+    src: url("./font/TAEBAEK\ milkyway.ttf");
 }
 
-@font-face{
-  font-family: 'dongle';
-  src: url(./font/TAEBAEK\ milkyway.ttf);
-}
-
-@font-face{
-  font-family: 'tae';
-  src: url(./font/TAEBAEK\ milkyway.ttf);
+@font-face {
+    font-family: 'Pretendard JP';
+    src: url('./font/PretendardJPVariable.woff2') format('woff2-search'); 
+    font-weight: 100 900; /* 가변 폰트의 모든 굵기 스펙트럼 수용 */
+    font-style: normal;
+    font-display: swap;
 }
 
 * {
-    box-sizing: border-box;   
+    box-sizing: border-box; 
+    /* 서체 렌더링을 매끄럽게 다듬어 글자가 뭉치거나 딱딱하게 깨지는 현상 방지 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-
-body{
-  background-color: #ffffff;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+a {
+    text-decoration: none;
+    cursor: pointer;
 }
 
+/* 브라우저 아웃사이드 배경 */
+html, body {
+    background-color: #e7e7e7; 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* ==========================================
+   2. 스마트폰 프레임 고정 (19.5:9 황금 실물 비율)
+   ========================================== */
+#app-wrapper {
+    background-color: #ffffff; 
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    margin: 0 auto;
+    
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+@media screen and (min-width: 600px) {
+    #app-wrapper {
+        min-height: unset; 
+        width: 450px;       
+        height: 945px;      
+        max-width: 450px !important; 
+        
+        overflow-y: auto;   
+        overflow-x: hidden;
+        
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        border: 1px solid #111111;
+        border-radius: 40px; 
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    #app-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* ==========================================
+   3. 모던 미니멀리즘 헤더 컴포넌트 
+   ========================================== */
 .title-header {
-  text-align:center;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  border-bottom: 1px solid black;
+    display: flex !important;
+    justify-content: space-between !important; /* 좌우 끝과 끝으로 배치 */
+    align-items: center !important;             /* 수직 정중앙 정렬 */
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 40px 0 !important;              /* 내부 여백 핏 조정 */
+    border-bottom: 1px solid #e5e5e5;           /* 필요시 얇은 하단 구분선 */
+    height: 120px !important;                    /* 헤더 높이 고정 */
 }
 
+/* 로고 링크 기본 스타일 초기화 */
+.logo-link {
+    text-decoration: none !important;
+    color: #111111 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 로고 텍스트를 왼쪽 끝으로 밀착 */
 .title-header h2 {
-  font-size: 24px;
-  font-family: 'gotham';
-  color:rgb(0, 0, 0);
-  line-height: 20px;
-  margin: 0;
-  padding: 20px 0 6px;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    text-align: left !important;
 }
 
-.service{
-  font-size: 30px;
-  margin-top: 1px;
-  text-align: center;
-  font-family: 'tae';
-  background-color: none;
-  line-height: 60px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid black;
+/* 언어 선택 바를 오른쪽 끝에 안착 (공중 부양 absolute 제거) */
+.lang-selector {
+    position: static !important; /* absolute 해제하여 흐름에 편입 */
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-
-
-.menu {
-  float: left;
-  text-align: center;
-  justify-content:center;
-  font-family: 'tae';
-  padding: 20px;
-  font-size: 30px;
-  overflow: hidden;
-  height: 100%;
+/* 언어 슬림 버튼 디테일 */
+.lang-selector button {
+    background: none !important;
+    border: none !important;
+    padding: 0 2px !important;
+    margin: 0 !important;
+    font-family: 'tae', sans-serif !important;
+    font-size: 11px !important;
+    letter-spacing: 0.05em !important;
+    color: #cccccc !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
 }
 
-
-.menu a {
-  display: block;
-  color: black;
-  border-radius: 0;
-  margin-bottom:20px;
-  padding: 100px;
+.lang-divider {
+    font-family: 'tae', sans-serif !important;
+    font-size: 10px !important;
+    color: #e5e5e5 !important;
+    padding: 0 4px !important;
+    user-select: none !important;
 }
 
-.game {
-  position: relative; 
-  cursor: pointer;
-  height: 200px;
-  border: 1px solid black;
+.lang-selector button:hover {
+    color: #888888 !important;
 }
 
-.game::before {
-  content: ""; 
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(./img/IMG_1696.PNG) ;
-  background-size: 100%;
-  opacity: 0.8;
+.lang-selector button.active {
+    color: #111111 !important;
+    font-weight: bold !important;
 }
 
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(18, 18, 18, 0.5);
-  z-index: 999;
-  word-break: keep-all;
-  font-family: 'dongle';
-  font-size: 18px;  
+.service {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'tae';
+    line-height: 1;
+    margin: 20px 0 20px 0;
+    padding-bottom: 16px;
+    color: #111111;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #111111; /* 본문 구분을 명확히 하는 얇은 블랙 선 */
 }
 
-.popup1 {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(18, 18, 18, 0.5);
-  z-index: 999;
-  word-break: keep-all;
-  font-family: 'dongle';
-  font-size: 18px;  
-}
-
-.popup2 {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  word-break: keep-all;
-  font-family: 'dongle';
-  font-size: 16px;
-}
-
-.popup-content {
-  background-color: rgb(249, 249, 249);
-  border: 1px solid black;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  line-height: 40px;
-  font-size: 20px;
-  height: 80%;
-  width: 95%;
-  overflow: auto;
-}
-
-.popup-meal {
-  background-color: rgb(249, 249, 249);
-  border: 1px solid black;
-  height: 80%;
-  width: 95%;
-  overflow: auto;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  line-height: 40px;
-  font-size: 20px;
-}
-
-
-.popup-sports {
-  background-color: rgb(249, 249, 249);
-  border: 1px solid black;
-  height: 80%;
-  width: 95%;
-  overflow: auto;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  line-height: 40px;
-  font-size: 20px;
-}
-
-
-
-.close {
-  position: relative;
-  right: 0%;
-  cursor: pointer;
-  font-size: 50px;
-
-}
-
-.warning{
-  position: relative;
-  text-align: center;
-  border-bottom: 1px solid black;
-}
-
-
-.sports {
-  position: relative; 
-  display: inline-block;
-  line-height: 30vh;
-  font-size: 40px;
-  height: 200px;
-  border: 1px solid black;
-}
-
-.sports::before {
-  content: ""; 
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(./img/sports1.jpg) ;
-  background-size: 100%;
-  opacity: 0.8;
-}
-
-
-.meal {
-  position: relative; 
-  display: inline-block;
-  font-size: 40px;
-  line-height: 30vh;
-  border: 1px solid black;
-
-}
-
-.meal::before {
-  content: ""; 
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(./img/food.jpg) ;
-  background-size: 100%;
-  opacity: 0.8;
-}
-
-.prepared{
-  bottom: 30px;
-  font-size: 20px;
-  background-color: #c0c0c0;
-  border: 1px solid black;
-
-}
-
-
-
+/* ==========================================
+   4. 메인 정보 탭 영역 (현상상, 이용방법 등)
+   ========================================== */
 .main {
-  position: relative;
-  width: 60%;
-  padding: 0 20px;
-  text-align: center;
-  word-break: keep-all;
-  line-height: 40px;
-  font-family: 'tae';
-  font-size: 20px;
-  margin-bottom: 10px;
-  border-bottom: 2px solid black;
+    position: relative;
+    width: 100%;
+    padding: 0; 
+    text-align: center;
+    word-break: keep-all;
+    font-family: 'tae';
+    margin-top: 24px;
 }
 
-
-.main p{
-  text-align: left;
-  color: rgb(0, 0, 0);
-  margin-top: 0;
-}
-
-.click{
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  font-size: 13px;
-  margin-bottom: 0;
+.click {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 13px;
+    gap: 0; 
 }
 
 .click > * {
-  border: 1px solid black;
-}
-
-.info1{
-  position: relative;
-  display: none;
-  text-align: left;
-  padding-left: 100px;
-  margin-top: -10px;
-}
-
-.info2{
-  position: relative;
-  right: 20px;
-  display: none;
-  text-align: left;
-  margin-top: -30px;    
-  padding-left: 100px;
-}
-
-.info3{
-  position: relative;
-  right: 20px;
-  display: none;
-  text-align: left;
-  margin-top: -30px;    
-  padding-left: 100px;
-}
-.info4{
-  margin-top: -10px;
-
-  display: none;
-    padding-left: 100px;
-}
-
-
-.line2 {
-  border-top: 3px solid #444444;
-  margin: 10px auto;
-  width: 100%;        
-  margin-bottom: 30px;
-}
-
-
-.right {
-  float: left;
-  width: 20%;
-  padding: 15px;
-  margin-top: 1px;
-  text-align: left;
-  font-size: 12px;
-  line-height: 0.6;
-  font-family: 'dongle';
-  border-top: 1px solid black;
-}
-
-
-.copyrights{
-    bottom: 0;
-    color: #444444;
-    padding: 15px;
-    text-align:left;
+    border: 1px solid #111111;
+    background: #ffffff;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'tae';
     font-size: 14px;
-    margin-top:3px;
-    line-height: 23px;
-    height: 100px;
-    font-family: 'gotham';
-    justify-content: left;
+    cursor: pointer;
+    margin: 0;
+    font-weight: normal;
+    transition: background 0.2s ease;
 }
 
-.copyrights a{
-  font-family: 'tae';
+.click > *:hover {
+    background: #f5f5f5;
 }
 
-@media only screen and (max-width: 620px) {
-  /* For mobile phones: */
-  .menu, .main, .right {
+.click > *.active {
+    background: #5f5f5f; /* 매트 블랙으로 전면 채우기 */
+    color: #cccccc;      /* 글자색은 화이트로 반전 */
+    font-weight: bold;   /* 은은한 굵기 강조 */
+}
+
+/* 정보 클릭 시 열리는 설명 텍스트 박스 */
+.info1, .info2, .info3, .info4 {
+    display: none;
+    text-align: left;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid #111111;
+    font-size: 15px;
+    line-height: 1.6;
+}
+.info1 p, .info2 p, .info3 p, .info4 p { margin: 0; color: #333333; }
+.info1 ol, .info2 ol, .info3 ol, .info4 ol { margin: 0; padding-left: 20px; }
+.info1 li, .info2 li, .info3 li, .info4 li { margin-bottom: 6px; }
+
+/* ==========================================
+   5. 메뉴 선택 영역 (가로형 와이드 슬림 카드)
+   ========================================== */
+.menu {
     width: 100%;
-    overflow-x: hidden;
-  }
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    margin-bottom: 32px;
 }
 
-.list{
-  color: rgb(0, 0, 0);
+.menu-item-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.gg{
-  position: relative;
-  color: rgb(0, 0, 0);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: left;
-  margin-bottom: 50px;
-  text-decoration: underline;
-  text-decoration-thickness: 1px; /* 밑줄 두께 설정 */
-  text-underline-offset: 20px; /* 밑줄 위치 설정 */
+.game, .sports, .meal, .prepared {
+    position: relative; 
+    cursor: pointer;
+    height: 240px; 
+    border: 1px solid #111111;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.gg1{
-  position: relative;
-  color: rgb(100, 100, 100);
-  display: block;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.game::before, .sports::before, .meal::before {
+    content: ""; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+    z-index: -1;
+    transition: transform 0.4s ease;
 }
 
-.yn{
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
+.game::before { background-image: url("./img/IMG_1696.PNG"); }
+.sports::before { background-image: url("./img/sports1.jpg"); }
+.meal::before { background-image: url("./img/food.jpg"); }
+
+.game:hover::before, .sports:hover::before, .meal:hover::before {
+    transform: scale(1.04);
 }
 
-.button, .button1{
-  position: relative;
-  width: 100px;
-  height: 40px;
-  color: rgb(0, 0, 0);
-  font-size: 18px;
-  line-height: 40px;
-  font-family: 'dongle';
-  border: 1px solid black;
-  /* box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.9); */
-  text-align: center;
+/* 준비중 상자 미니멀라이즈 */
+.prepared {
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    cursor: not-allowed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gg1 {
+    font-family: 'tae';
+    font-size: 18px;
+    color: #aaaaaa;
 }
 
-.button1{
-  left: 30%;
+/* 카드 하단 캡션 라벨 (칼정렬) */
+.gg {
+    font-family: 'tae'; /* 영문/한글 모던 밸런스 */
+    font-size: 18px;
+    font-weight: 700;
+    color: #111111;
+    margin-top: 18px;
+    text-align: left; 
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #111111;
 }
 
-a{
-  text-decoration: none;
-  cursor: pointer;
+/* ==========================================
+   6. 브라우저 뷰포트(Viewport) 정중앙 박제 팝업
+   ========================================== */
+.popup, .popup1, .popup2 {
+    display: none; 
+    
+    /* 화면 전체를 기준으로 완벽 고정 */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    /* 꼬임 없는 Flexbox 중앙 정렬 시스템 가동 */
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(0, 0, 0, 0.5); /* 모던한 반투명 암전 */
+    z-index: 999999; /* 최상위 레이어 박제 */
 }
 
-.ask{
-  bottom: 0;
-  color: #444444;
-  padding: 15px;
-  text-align:left;
-  font-size: 14px;
-  margin-top:3px;
-  line-height: 23px;
-  font-family: 'tae';
-  justify-content: left;
+/* 팝업 내부의 실물 하얀색 유의사항 박스 */
+.popup-content, .popup-meal, .popup-sports {
+    background-color: #ffffff;
+    border: 1px solid #111111;
+    padding: 32px 24px;
+    
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    
+    /* 모바일 비율에 맞춘 정갈한 팝업창 크기 정의 */
+    width: 90%;
+    max-width: 380px; 
+    height: 50vh; 
+    border-radius: 12px; 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); 
 }
 
-.ask a{
-  font-size: 14pt;
+/* 팝업 내부 스크롤바 삭제 */
+.popup-content::-webkit-scrollbar,
+.popup-meal::-webkit-scrollbar,
+.popup-sports::-webkit-scrollbar {
+    display: none;
+}
+
+/* 팝업 상단 타이틀 "유의사항" */
+.warning {
+    font-family: 'tae';
+    font-size: 20px;
+    color: #111111;
+    text-align: left;
+    font-weight: bold;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #111111;
+    margin-bottom: 20px;
+}
+
+/* 유의사항 리스트 */
+.list {
+    font-family: 'tae';
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444444;
+    margin: 0;
+    padding-left: 20px;
+    overflow-y: auto; 
+    flex-grow: 1;    
+    margin-bottom: 24px;
+}
+.list li {
+    margin-bottom: 10px;
+    word-break: keep-all;
+}
+
+/* 하단 버튼 배치 2열 그리드 */
+.yn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px; 
+    width: 100%;
+    margin-top: auto; 
+}
+
+/* 버튼 공통 디자인 */
+.button, .button1 {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'tae';
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #111111;
+    border-radius: 0px; 
+    text-align: center;
+    line-height: 1;
+    width: 100%;
+}
+
+/* '반대합니다' 버튼 */
+.button1 {
+    background-color: #ffffff;
+    color: #666666;
+    border-color: #cccccc;
+}
+.button1:hover {
+    background-color: #f5f5f5;
+    color: #111111;
+    border-color: #111111;
+}
+
+/* '동의합니다' 버튼 */
+.button {
+    background-color: #111111;
+    color: #ffffff;
+}
+.button:hover {
+    background-color: #333333;
+}
+
+/* ==========================================
+   7. 정교한 2열 정렬 수직 푸터
+   ========================================== */
+.app-footer {
+    width: 100%;
+    margin-top: auto; 
+    padding: 32px 0 40px 0; 
+    border-top: 1px solid #e5e5e5; 
+    font-family: 'dongle';
+}
+
+.footer-info {
+    margin-bottom: 24px;
+}
+.footer-info p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #888888; 
+    margin: 2px 0;
+}
+.footer-info p span {
+    color: #444444;
+    margin-right: 8px;
+    display: inline-block;
+    min-width: 110px; 
+}
+
+.footer-bottom {
+    margin-top: 20px;
+}
+.cs-center {
+    margin-bottom: 16px;
+}
+.cs-center .cs-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666666;
+}
+.cs-center p {
+    font-size: 13px;
+    color: #666666;
+}
+
+.copyright {
+    font-family: 'gotham'; 
+    font-size: 10px;
+    letter-spacing: 0.04em; 
+    color: #aaaaaa;
+    margin-top: 24px;
+    text-transform: uppercase; 
+}
+
+/* 구식 찌꺼기 레이아웃 완전 파괴 */
+.line2, .copyrights, .right, .ask { display: none !important; }
+
+
+/* ==========================================
+   [서체 및 정렬 고도화] 일본어 선택 시 자동 스위칭 시스템
+   ========================================== */
+
+/* 자바스크립트가 활성화되어 상단 html 태그가 lang="jp"로 바뀌는 순간,
+   태백은하수체('tae', 'dongle')로 묶여있던 모든 텍스트 영역을 
+   새로 장착한 'Pretendard JP'로 강제 덮어쓰기 정밀 전환합니다.
+*/
+[lang="jp"] .title-header h2,
+[lang="jp"] .service,
+[lang="jp"] .click > *,
+[lang="jp"] .info1, [lang="jp"] .info2, [lang="jp"] .info3, [lang="jp"] .info4,
+[lang="jp"] .info1 p, [lang="jp"] .info2 p, [lang="jp"] .info3 p, [lang="jp"] .info4 p,
+[lang="jp"] .gg1,
+[lang="jp"] .gg,
+[lang="jp"] .warning,
+[lang="jp"] .list,
+[lang="jp"] .button, [lang="jp"] .button1,
+[lang="jp"] .app-footer,
+[lang="jp"] .book-modal * {
+    font-family: 'Pretendard JP', sans-serif !important;
+}
+
+/* ★ 중요 디테일: 띄어쓰기가 전혀 없는 일본어 문장들이 
+   우측 패딩 가이드를 무시하고 탈출하지 못하도록 한계선 자동 줄바꿈 제어
+*/
+[lang="jp"] .info1, [lang="jp"] .info2, [lang="jp"] .info3, [lang="jp"] .info4,
+[lang="jp"] .list,
+[lang="jp"] .list li,
+[lang="jp"] .r {
+    word-break: break-all !important;
 }

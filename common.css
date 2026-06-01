@@ -1,0 +1,918 @@
+/* ==========================================
+1. 폰트 및 전체 기본 설정
+   ========================================== */
+@font-face {
+    font-family: 'gotham';
+    src: url("./font/Gotham-Font/GothamLight.ttf");
+}
+@font-face {
+    font-family: 'dongle';
+    src: url("./font/TAEBAEK\ milkyway.ttf");
+}
+@font-face {
+    font-family: 'tae';
+    src: url("./font/TAEBAEK\ milkyway.ttf");
+}
+
+@font-face {
+    font-family: 'Pretendard JP';
+    src: url('./font/PretendardJPVariable.woff2') format('woff2-search'); /* 파일 경로가 다르면 이 부분을 수정해 주세요 */
+    font-weight: 100 900; /* 가변 폰트의 모든 굵기 스펙트럼 수용 */
+    font-style: normal;
+    font-display: swap;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+/* 브라우저 전체 배경 */
+html, body {
+    background-color: #e7e7e7; 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    
+    /* ★ 핵심 디테일: 새로 가져온 Pretendard JP를 최우선 스택으로 바인딩하여 일본어와 한/영 무드를 시크하게 통일 */
+    font-family: 'Pretendard JP', 'Noto Sans KR', sans-serif;
+    color: #111111;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+/* ==========================================
+스마트폰 프레임 고정 및 스크롤 격리
+   ========================================== */
+#app-wrapper {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    margin: 0 auto;
+    
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* ==========================================
+[핵심 수정] 데스크톱 웹에서 볼 때 세로 높이 고정 및 탈출 방지
+   ========================================== */
+@media screen and (min-width: 600px) {
+    #app-wrapper {
+        min-height: unset; 
+        
+        /* ★ 실제 아이폰/갤럭시 플래그십의 19.5:9 비율을 그대로 이식 
+           가로 450px 기준 세로 945px이 가장 완벽한 실제 폰 스크린 비율입니다. */
+        width: 450px;       
+        height: 945px;      
+        max-width: 450px !important; 
+        
+        /* 내부 스크롤 및 무조건 박제 */
+        overflow-y: auto;   
+        overflow-x: hidden;
+        
+        /* 화면 정중앙 배치 */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        /* 실제 가전/폰 하드웨어처럼 극도로 슬림하고 정교한 베젤 표현 */
+        border: 1px solid #111111;
+        border-radius: 40px; /* 요즘 스마트폰 특유의 부드럽고 깊은 라운딩 곡률 반영 */
+        
+        /* 공중에 떠 있는 듯한 모던한 하이엔드 그림자 효과 */
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 화면이 아래로 아주 길어졌으므로, 스크롤바가 숨겨진 상태에서 
+       내부 컴포넌트들이 실제 앱처럼 유연하게 자리를 잡도록 유도 */
+    #app-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 599px) {
+        .carousel-btn{
+        display:none;
+    }
+}
+
+/* ==========================================
+   2. 헤더 및 레이아웃 구조/* ==========================================
+   2. 헤더 및 레이아웃 구조 (정밀 정돈본)
+   ========================================== */
+
+.title-header {
+    display: flex !important;
+    justify-content: space-between !important; /* 좌우 끝과 끝으로 배치 */
+    align-items: center !important;             /* 수직 정중앙 정렬 */
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 40px 0 !important;              /* 내부 여백 핏 조정 */
+    border-bottom: 1px solid #e5e5e5;           /* 필요시 얇은 하단 구분선 */
+    height: 120px !important;                    /* 헤더 높이 고정 */
+}
+
+
+/* 로고 링크 기본 스타일 초기화 */
+.logo-link {
+    text-decoration: none !important;
+    color: #111111 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 로고 텍스트를 왼쪽 끝으로 밀착 */
+.title-header h2 {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    text-align: left !important;
+}
+
+/* 언어 선택 바를 오른쪽 끝에 안착 (공중 부양 absolute 제거) */
+.lang-selector {
+    position: static !important; /* absolute 해제하여 흐름에 편입 */
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 언어 슬림 버튼 디테일 */
+.lang-selector button {
+    background: none !important;
+    border: none !important;
+    padding: 0 2px !important;
+    margin: 0 !important;
+    font-family: 'tae', sans-serif !important;
+    font-size: 11px !important;
+    letter-spacing: 0.05em !important;
+    color: #cccccc !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+}
+
+.lang-divider {
+    font-family: 'tae', sans-serif !important;
+    font-size: 10px !important;
+    color: #e5e5e5 !important;
+    padding: 0 4px !important;
+    user-select: none !important;
+}
+
+.lang-selector button:hover {
+    color: #888888 !important;
+}
+
+.lang-selector button.active {
+    color: #111111 !important;
+    font-weight: bold !important;
+}
+
+
+.reservation {
+    text-align: center;
+    font-family: 'tae';
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.main, .menu, .right {
+    width: 100%;
+}
+
+.menu {
+    text-align: center;
+    justify-content: center;
+    font-family: 'tae';
+    padding: 20px;
+    font-size: 30px;
+    height: auto;
+}
+.menu a {
+    display: block;
+    color: black;
+    border-radius: 0;
+    margin-bottom: 20px;
+    padding: 100px;
+}
+
+.main {
+    position: relative;
+    text-align: center;
+    word-break: keep-all;
+    line-height: 30px;
+    font-family: 'tae';
+    font-size: 30px;
+}
+.main h2 {
+    color: rgb(0, 0, 0);
+    font-family: 'tae';
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.right {
+    padding: 15px;
+    margin-top: 1px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.4; 
+    font-family: 'dongle';
+    border-top: 1px solid black;
+}
+
+/* ==========================================
+   3. 메인 콘텐츠 스타일 및 슬라이드 (★ 캐로셀 렌더링 전면 보정)
+   ========================================== */
+.game, .sports, .meal {
+    position: relative; 
+    cursor: pointer;
+    height: 200px;
+    border: 1px solid black;
+}
+.sports, .meal {
+    display: inline-block;
+    line-height: 30vh;
+    font-size: 40px;
+}
+
+.game::before, .sports::before, .meal::before {
+    content: ""; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    opacity: 0.8;
+}
+
+.game::before { background-image: url(./img/IMG_1696.PNG); }
+.sports::before { background-image: url(./img/sports1.jpg); }
+.meal::before { background-image: url(./img/food.jpg); }
+
+.prepared {
+    bottom: 30px;
+    font-size: 20px;
+    background-color: #c0c0c0;
+    border: 1px solid black;
+}
+
+.service {
+    font-size: 30px;
+    margin-top: 1px;
+    text-align: center;
+    font-family: 'tae';
+    background-color: none;
+    line-height: 60px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid black;
+}
+
+.warning {
+    position: relative;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+.click {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    font-size: 13px;
+    margin-bottom: 0;
+}
+.click > * { border: 1px solid black; }
+
+.info1, .info2, .info3, .info4 {
+    position: relative;
+    display: none;
+    text-align: left;
+    padding-left: 100px;
+}
+.info1 { margin-top: -10px; }
+.info2 { right: 20px; margin-top: -30px; }
+.info3 { right: 20px; margin-top: -30px; }
+.info4 { margin-top: -10px; }
+/* ==========================================
+[정밀 튜닝] 캐로셀 레이아웃 & 블렌딩 버튼
+   ========================================== */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 12px 0 24px 0;
+}
+
+/* ★ 중요: overflow-x를 반드시 auto나 scroll로 열어두어야 스크롤이 굴러갑니다 */
+.carousel-container {
+    width: 100%;
+    overflow-x: auto !important; 
+    overflow-y: hidden !important;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 auto;
+    flex-shrink: 0; 
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; 
+}
+
+/* 스크롤바 클린 삭제 */
+.carousel-container::-webkit-scrollbar {
+    display: none !important;
+}
+
+.carousel {
+    display: flex; 
+    flex-direction: row;
+    width: max-content;
+    padding-left: 24px; 
+    padding-right: 24px;
+}
+
+.slide {
+    flex: 0 0 260px;
+    width: 260px;
+    height: 195px; 
+    margin-right: 12px; 
+    scroll-snap-align: start;
+}
+
+.slide img {
+    width: 100%; 
+    height: 100%;
+    display: block;
+    object-fit: cover; 
+    border: 1px solid #e0e0e0; 
+    opacity: 0.95;
+    transition: opacity 0.3s ease;
+}
+.slide img:hover { opacity: 1; }
+
+/* ─── 확정하신 블렌딩 반전 화살표 버튼 스타일 ─── */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 36px;       
+    font-weight: 200;      
+    
+    color: #ffffff;
+    mix-blend-mode: difference; /* 배경색에 맞춰 흑백 자동 반전 */
+    opacity: 0.5;               
+    
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    padding: 0 10px;
+}
+
+.prev-btn { left: 5px; }
+.next-btn { right: 5px; }
+
+.carousel-btn:hover {
+    opacity: 0.8 !important;
+    transform: translateY(-50%) scale(1.1); 
+}
+
+/* 모바일 접속 환경에서는 버튼 비활성화 */
+@media screen and (max-width: 600px), (hover: none) {
+    .carousel-btn {
+        display: none !important;
+    }
+}
+
+/* 타임테이블 그리드 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 정확히 반반 나누기 */
+    gap: 12px; /* 요소 사이의 간격(Gutter)을 12px로 통일 */
+}
+
+.grid-container > * {
+    border: 1px solid black;
+}
+
+.grid-item {
+    background-color: rgb(255, 255, 255);
+    /* 패딩과 높이도 규칙적으로 배정 (4의 배수 혹은 6의 배수) */
+    padding: 18px; 
+    height: 54px;
+    
+    border: 1px solid #000000; /* 전체 테마인 블랙 라인 */
+    border-radius: 0px; /* 미니멀 직각 */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'tae';
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.grid-item:hover {
+    background-color: #f0f0f0; /* 은은한 호버 효과 */
+}
+
+/* ==========================================
+4. 달력 및 캘린더 팝업 
+   ========================================== */
+.date {
+    position: relative;
+    text-align: center;
+    word-break: keep-all;
+    font-family: 'tae';
+    margin-bottom: 20px;
+}
+
+.select {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 0;
+    color: rgb(0, 0, 0);
+}
+
+/* ==========================================
+[디밸롭] 하이엔드 미니멀리즘 캘린더 팝업
+   ========================================== */
+.popup-calendar {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    
+    /* 투박한 3px 그레이 테두리를 걷어내고 정밀한 1px 솔리드 블랙 장착 */
+    border: 1px solid #111111;
+    padding: 24px;
+    
+    /* 은은하게 바닥에 가라앉는 고급스러운 모달 섀도우 */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    width: 88%;
+    max-width: 360px;
+    border-radius: 0px; /* 칼정렬 직각 미학 유지 */
+}
+
+/* 팝업 상단 타이틀 바 구획 */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #111111; /* 정갈한 타이틀 하단 선 */
+}
+
+.calendar-title {
+    font-family: 'tae';
+    font-size: 18px;
+    font-weight: bold;
+    color: #111111;
+    letter-spacing: 0.05em;
+}
+
+/* ★ [사소한 디테일] 가느다란 고해상도 X 닫기 버튼 */
+.calendar-close {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #111111;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.calendar-close:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* 실물 테이블 구조 스타일링 */
+.calendar {
+    font-family: 'tae';
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.calendar th {
+    font-size: 12px;
+    font-weight: bold;
+    color: #111111;
+    padding: 8px 0;
+    text-align: center;
+}
+
+.calendar td {
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #111111;
+    transition: all 0.15s ease;
+    border: none; /* 격자무늬 선을 지워 시각적인 피로도 축소 */
+}
+
+/* 오늘 날짜 (연분홍 대신 은은하고 세련된 언더라인 또는 소프트 그레이 바탕) */
+.calendar .today {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* 선택 불가능한 과거일 및 제한된 홀수일 */
+.calendar .odd-day,
+.past {
+    background-color: transparent !important;
+    color: #cccccc !important; /* 글씨를 투명감 있게 흐리게 처리 */
+    cursor: not-allowed !important;
+}
+
+/* 선택된 날짜 (원색 블루 대신 시그니처 매트 블랙 반전 매칭) */
+.selected {
+    background-color: #ffffff !important;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* 마우스를 올렸을 때 정갈한 그리드 면 반응 */
+.selectable:hover:not(.past) {
+    background-color: #eaeaea;
+}
+
+/* readonly(고정값) 인풋창만 시각적으로 격리하는 미니멀 UX 디테일 */
+input[readonly] {
+    background-color: #f9f9f9 !important; /* 소프트 그레이 배경 */
+    color: #777777 !important;            /* 글자색을 약간 차분하게 변경 */
+    cursor: not-allowed !important;       /* 마우스 호버 시 금지 아이콘 표시 */
+    border-color: #dddddd !important;     /* 테두리 선도 은은하게 처리 */
+}
+
+/* ==========================================
+5. 일반/예약 팝업 및 메시지창 
+   ========================================== */
+.popup, .popup1, .popup2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    z-index: 999;
+    word-break: keep-all;
+}
+.popup, .popup1 {
+    background-color: rgba(18, 18, 18, 0.5);
+    font-family: 'dongle';
+    font-size: 18px;  
+}
+.popup2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: 'dongle';
+    font-size: 16px;
+}
+
+.popup-content, .popup-meal, .popup-sports {
+    background-color: rgb(249, 249, 249);
+    border: 1px solid black;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+    font-size: 20px;
+    height: 80%;
+    width: 95%;
+    overflow: auto;
+}
+
+.close {
+    position: relative;
+    right: 0%;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+/* ==========================================
+[수정 완료] 예약 정보 입력 모달 창 (.book-modal)
+   ========================================== */
+.book-modal {
+    display: none; /* 평소 숨김 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border: 1px solid #111111; /* 촌스러운 그레이를 매트 블랙으로 디밸롭 */
+    border-radius: 0px;        /* 직각 미학 통일 */
+    width: 90%;
+    max-width: 410px;
+    z-index: 1001;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* 모달 내부 타이틀 유의사항과 통일 */
+.warning {
+    font-family: 'tae';
+    font-size: 18px;
+    font-weight: bold;
+    color: #111111;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #111111;
+    margin-bottom: 20px;
+}
+
+/* 입력 필드 레이아웃 그룹 */
+.form-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+label {
+    font-family: 'tae';
+    font-size: 14px;
+    color: #555555;
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+input[type="text"],
+textarea {
+    font-family: 'tae';
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #111111; /* 테두리 1px 블랙 */
+    border-radius: 0px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #111111;
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* 하단 버튼 정렬 그리드 */
+.yn {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 24px !important;
+    
+    /* 혹시 모를 부모 박스의 padding/margin 간섭 방어 */
+    padding: 0 !important; 
+}
+/* 두 버튼 공통 - 가로폭 100% 채우기 및 불필요한 정렬 속성 완전 초기화 */
+.button, .button1 {
+    width: 100% !important;
+    height: 44px !important;
+    font-size: 14px !important;
+    font-family: 'tae' !important;
+    cursor: pointer !important;
+    
+    /* ★ 핵심 수정: 글자와 박스가 따로 노는 현상을 막기 위해 
+       마진과 패딩을 완전한 제로(0)로 박제하고, 오직 Flexbox 중앙 정렬만 강제합니다. */
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    
+    /* 기타 구식 레이아웃 속성 무력화 */
+    float: none !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+
+    box-sizing: border-box !important;
+    border: 1px solid #111111 !important;
+    border-radius: 0px !important; /* 직각 미학 */
+}
+
+/* 취소 버튼 (화이트 베이스) */
+.button1 {
+    background-color: #ffffff !important;
+    color: #111111 !important; 
+    border-color: #111111 !important;
+}
+.button1:hover {
+    background-color: #f5f5f5 !important;
+}
+
+/* 예약 버튼 (블랙 반전) */
+.button {
+    background-color: #5f5f5f !important;
+    color: #f1f1f1 !important;
+}
+.button:hover {
+    background-color: #333333 !important;
+}
+/* 성공 메시지 레이어 정돈 */
+#successMessage, #errorMessage {
+    position: fixed;
+    background-color: white;
+    border: 1px solid #111111;
+    padding: 16px 24px;
+    width: 80%;
+    max-width: 360px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    font-family: 'tae';
+    font-size: 16px;
+    z-index: 1002;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+/* ==========================================
+6. 하단 푸터 및 리뷰 컴포넌트
+   ========================================== */
+/* ==========================================
+[미니멀리즘 업그레이드] 모던 & 고급 푸터 (Footer)
+   ========================================== */
+.app-footer {
+    width: 100%;
+    /* 상단 콘텐츠와의 간격을 그리드 규칙(24px)의 2배인 48px로 넓혀 숨통을 틔웁니다 */
+    margin-top: 48px; 
+    padding: 32px 0 40px 0; /* 푸터 내부의 정갈한 위아래 여백 */
+    border-top: 1px solid #e0e0e0; /* 아주 연하고 정교한 가로선 */
+    font-family: 'dongle'; /* 얇은 서체 레이아웃 유도 */
+}
+
+/* 상호 및 사업자 상세 정보 */
+.footer-info {
+    margin-bottom: 24px;
+}
+.footer-info p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #888888; /* 본문보다 톤다운된 연한 회색으로 서브 정보 처리 */
+    margin: 2px 0;
+    font-weight: 300;
+}
+/* '상호', '대표자' 같은 분류 항목만 미세하게 강조 */
+.footer-info p span {
+    color: #444444;
+    margin-right: 8px;
+    display: inline-block;
+    /* ★ [수정] 75px에서 110px로 변경하여 가장 긴 글자도 여유 있게 수용 */
+    min-width: 110px; 
+}
+/* 고객센터 및 카피라이트 영역 */
+.footer-bottom {
+    margin-top: 20px;
+}
+.cs-center {
+    margin-bottom: 16px;
+}
+.cs-center .cs-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 12px;
+}
+.cs-center p {
+    font-size: 13px;
+    color: #666666;
+    margin: 0;
+}
+
+/* 카피라이트 문구 (가장 작고 흐릿하게 밸런스 조정) */
+.copyright {
+    font-family: 'gotham'; /* 영문 카피라이트는 고담 체로 모던하게 배치 */
+    font-size: 10px;
+    letter-spacing: 0.03em; /* 미니멀리즘 특유의 넓은 자간 설정 */
+    color: #aaaaaa;
+    margin-top: 24px;
+    text-transform: uppercase; /* 대문자 변환으로 정돈된 느낌 부여 */
+}
+.list { color: rgb(0, 0, 0); }
+
+.gg {
+    position: relative;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 50px;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 20px;
+}
+.copyrights a { font-family: 'tae'; }
+
+.list { color: rgb(0, 0, 0); }
+
+.gg1 {
+    position: relative;
+    color: rgb(100, 100, 100);
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ask {
+    color: #444444;
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    margin-top: 3px;
+    line-height: 23px;
+    font-family: 'tae';
+}
+.ask a { font-size: 14pt; }
+
+.sec {
+width: 100%;
+    border-top: 1px solid black;
+    margin-top: 24px; /* 구획을 나누는 간격은 항상 24px */
+}
+.review-section {
+display: grid;
+    /* 미니멀 2단 배치: '후기' 타이틀 영역과 실제 내용 영역 비율 조정 */
+    grid-template-columns: 1fr 3fr;
+    gap: 12px; /* 간격 통일 */
+    margin: 24px 0; /* 좌우 마진은 wrapper 패딩에 맡기고 0 */
+    font-family: 'tae';
+    overflow-wrap: break-word;
+    word-break: keep-all;
+}
+.pp { text-align: center; font-weight: bold; }
+
+.re {
+    margin-top: 0px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+.p {
+    font-size: 12pt;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.r {
+    font-size: 12pt;
+    line-height: 1.5;
+    font-weight: normal;
+    
+}
+
+/* 
+   HTML에 lang="jp"가 활성화되면 내부에서 'tae' 서체를 쓰던 
+   모든 핵심 컴포넌트의 서체를 Pretendard JP로 강제 전환합니다.
+*/
+[lang="jp"] .title-header h2,
+[lang="jp"] .reservation h2,
+[lang="jp"] .grid-item,
+[lang="jp"] .review-section,
+[lang="jp"] .pp,
+[lang="jp"] .p,
+[lang="jp"] .r,
+[lang="jp"] .app-footer,
+[lang="jp"] .book-modal * {
+    font-family: 'Pretendard JP', sans-serif !important;
+    word-break: break-all !important;
+}

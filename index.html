@@ -1,157 +1,177 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kookmin Univ. VCD</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
+<body>
 
+  <div id="app-wrapper">
 
 <div class="title-header">
-  <h2>Kookmin Univ. VCD
-  </h2>
-</div>
-
-
-  <div class="main">
-      <div class="click">
-    <h2 onclick="showInfo1()">현상상</h2>
-    <h2 onclick="showInfo2()">이용 방법</h2>
-    <h2 onclick="showInfo3()">유의사항</h2>
-    <h2 onclick="showInfo4()">삼행시</h2>
+      <a href="./index.html" class="logo-link">
+        <h2 data-lang="header_title">Kookmin Univ. VCD</h2>
+      </a>
+      
+      <div class="lang-selector">
+        <button onclick="setLanguage('ko')" class="active" id="lang-ko">KO</button>
+        <span class="lang-divider">/</span>
+        <button onclick="setLanguage('en')" id="lang-en">EN</button>
+        <span class="lang-divider">/</span>
+        <button onclick="setLanguage('jp')" id="lang-jp">JP</button>
       </div>
-      <div class="info1" id="info1"><p>정현상은 국민대학교 시각디자인학과 20학번으로서 현재 3학년으로 재학 중입니다. 현상상은 정현상과 같이 놀 수 있는 체험 서비스를 제공하고 있습니다. 현재 식사, 운동, 게임을 제공하고 있으며 언제나 최고의 서비스를 제공하고자 노력합니다. </p></div>
-      <div class="info2" id="info2"><p><ol>
-        <li>원하는 서비스를 선택한다</li>
-        <li>유의사항을 꼼꼼히 읽어본다</li>    <li>동의하기를 누른 후, 원하는 날짜 및 시간대를 선택한다</li>    
-        <li>필수 정보를 기입하고 "예약이 완료되었습니다" 알림이 뜰 때까지 기다리기</li>
-        <li>확정 답장이 오면 만나러 가기</li>
-      </ol> </p></div>
-      <div class="info3" id="info3"><p>
-        <ol>
-          <li>저녁 8시 이후로는 이메일 확인이 불가능함으로 답장이 늦어질 수 있습니다.</li>
-          <li>장소는 추후 협의하겠습니다</li>
-          <li>카드 혹은 결제수단은 꼭 가지고 다녀주세요</li>   
-          <li>컨디션 난조일 경우 약 8시간 전까지 연락드리겠습니다</li>
-          <li>7월중순까지는 홀숫날에만 운영합니다.</li>
+    </div>
 
-      </ol></p></div>
-      <div class="info4" id="info4"><p>정: 정말 힘들다 <br>현: 현상이랑 친해지는 건 <br> 상: 상담문의 </p></div>
+    
+    <div class="main">
+      <div class="click">
+        <h2 onclick="showInfo1()" data-lang="tab_present">현상상</h2>
+        <h2 onclick="showInfo2()" data-lang="tab_howTo">이용 방법</h2>
+        <h2 onclick="showInfo3()" data-lang="tab_notice">유의사항</h2>
+        <h2 onclick="showInfo4()" data-lang="tab_poem">삼행시</h2>
+      </div>
+      <div class="info1" id="info1">
+        <p data-lang="info1_text">정현상은 국민대학교 시각디자인학과 20학번으로서 현재 졸업을 기다리고 있습니다. 현상상은 정현상과 같이 놀 수 있는 체험 서비스를 제공하고 있습니다. 언제나 최고의 서비스를 제공하고자 노력합니다.</p>
+      </div>
+      <div class="info2" id="info2">
+        <p>
+          <ol>
+            <li data-lang="info2_1">원하는 서비스를 선택한다</li>
+            <li data-lang="info2_2">유의사항을 꼼꼼히 읽어본다</li>   
+            <li data-lang="info2_3">동의하기를 누른 후, 원하는 날짜 및 시간대를 선택한다</li>    
+            <li data-lang="info2_4">필수 정보를 기입하고 "예약이 완료되었습니다" 알림이 뜰 때까지 기다리기</li>
+            <li data-lang="info2_5">확정 답장이 오면 만나러 가기</li>
+          </ol> 
+        </p>
+      </div>
+      <div class="info3" id="info3">
+        <p>
+          <ol>
+            <li data-lang="info3_1">저녁 8시 이후로는 이메일 확인이 불가능함으로 답장이 늦어질 수 있습니다.</li>
+            <li data-lang="info3_2">장소는 추후 협의하겠습니다</li>
+            <li data-lang="info3_3">카드 혹은 결제수단은 꼭 가지고 다녀주세요</li>   
+            <li data-lang="info3_4">컨디션 난조일 경우 약 8시간 전까지 연락드리겠습니다</li>
+            <li data-lang="info3_5">7월중순까지는 홀숫날에만 운영합니다.</li>
+          </ol>
+        </p>
+      </div>
+      <div class="info4" id="info4">
+        <p data-lang="info4_text">정: 정말 힘들다 <br>현: 현상이랑 친해지는 건 <br> 상: 상담문의 </p>
+      </div>
+    </div>
+
+    <div class="service" data-lang="service_title">서비스 목록</div>
+
+    <div class="menu"> 
+      <div class="menu-item-wrapper">
+        <div class="game" onclick="showPopup()"></div>
+        <div class="gg" data-lang="menu_game">게임</div>
+      </div>
+
+      <div class="menu-item-wrapper">
+        <div class="sports" onclick="showPopup1()"></div>
+        <div class="gg" data-lang="menu_sports">운동</div>
+      </div>
+
+      <div class="menu-item-wrapper">
+        <div class="meal" onclick="showPopup2()"></div>
+        <div class="gg" data-lang="menu_meal">식사</div>
+      </div>
+
+      <div class="menu-item-wrapper">
+        <div class="prepared">
+          <div class="gg1" data-lang="menu_preparing">서비스 준비중</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <div class="footer-info">
+        <p><span data-lang="footer_company">상호</span> 현상상(주)</p>
+        <p><span data-lang="footer_owner">대표자</span> 정현상</p>
+        <p><span data-lang="footer_biznum">사업자등록번호</span> 200-00-91600</p>
+        <p><span data-lang="footer_addr">주소</span> 서울시 성북구 정릉로 77 국민대학교</p>
+        <p><span data-lang="footer_email">이메일</span> phenominium@gmail.com</p>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="cs-center">
+          <p class="cs-title" data-lang="footer_cs">고객센터</p>
+          <p data-lang="footer_hours">운영시간 12:00 ~ 17:00</p>
+        </div>
+        <p class="copyright">© 2024. Jeonghyunsang. All Rights Reserved.</p>
+      </div>
+    </footer>
   </div>
 
-  <div class="service">서비스 목록</div>
-
-  <div class="menu"> 
-    <a class="game" onclick="showPopup()">
-    </a>
-    <div class="gg">게임</div>
-
-    <a class="sports" onclick="showPopup2()"></a>
-    <div class="gg">운동</div>
-
-    <a class="meal" onclick="showPopup1()"></a>
-    <div class="gg">식사</div>
-
-    <a class="prepared"><div class="gg1">서비스 준비중</div></a>
+  <div class="popup" id="popup">
+      <div class="popup-meal">
+        <div class="warning" data-lang="popup_warn">유의사항</div>
+        <ol class="list">
+          <li data-lang="p_g1">공포게임을 할 경우 갑작스러운 큰 소리 주의</li>
+          <li data-lang="p_g2">과한 비난 금지, 어떠한 플레이든 따뜻하게 대할 것 </li>
+          <li data-lang="p_g3">보드 게임 시 2시간이 넘어가는 순간 집중력 저하가 일어날 수 있음</li>
+          <li data-lang="p_g4">어떠한 결과든 승복하고 받아들이기</li>
+          <li data-lang="p_g5">시간 연장은 최대 1시간까지 가능</li>
+          <li data-lang="p_g6">부정적인 태도 금지</li>
+          <li data-lang="p_g7">때때로 승패를 받아들이는 데 시간이 걸릴 수도 있음</li>
+          <li data-lang="p_g8">즐기는 것을 최우선으로 하기</li>
+          <li data-lang="p_g9">중간중간 휴식 시간 5분 필수</li>
+          <li data-lang="p_g10">화난다고 물건 험하게 다루지않기</li>
+        </ol>
+        <div class="yn">
+          <span class="button1" onclick="closePopup()" data-lang="popup_cancel">반대합니다</span>
+          <a href="./game.html" class="button" data-lang="popup_agree">동의합니다</a>
+        </div>
+      </div>
   </div>
 
   <div class="popup1" id="popup1">
-    <div class="popup-meal">
-      <div class="warning">유의사항</div>
+      <div class="popup-sports">
+        <div class="warning" data-lang="popup_warn">유의사항</div>
         <ol class="list">
-          <li>매운 요리나 바다향이 강한 음식(ex.굴, 홍합 등) 불가</li>
-          <li>면류를 취식 시, 되도록 소리를 줄이기 </li>
-          <li>가능한 나무 의자나 좌식 테이블보다는 쿠션 의자를 이용하기</li>
-          <li>혼잡한 시간대나 웨이팅이 있는 가게는 가급적 피하기
-         </li>
-          <li>입안에 음식물이 있는 상태로 대화하지 않기</li>
-          <li>같이 수저 세팅하거나, 물 세팅 도와줄 것</li>
-          <li>메뉴 선정을 쉽게 못함으로 주도적으로 메뉴 선정할 것</li>
-          <li>음식 사진 촬영 시 1분 이상 찍지 않기</li>
-          <li>되도록 다양한 메뉴 시키기</li>
-          <li>낮에는 술 마시지 않기</li>
-         </ol>
-         <div class="yn">
-          <span class="button1" onclick="closePopup1()">반대합니다</span>
-          <a href="./meal.html" class="button">동의합니다</a>
+          <li data-lang="p_s1">목적지까지의 이동시간이 1시간 이내만 가능</li>
+          <li data-lang="p_s2">처음 하는 운동일 시, 최소 휴식 시간 (20분) 보장 필수</li>
+          <li data-lang="p_s3">이틀 연속 이용은 불가능 (최소 하루 휴식 보장)</li>
+          <li data-lang="p_s4">비상 상황에 대처가 불가능함으로 운동 전에 스스로 스트레칭하고 안전사고에 유의</li>
+          <li data-lang="p_s5">하루에 두 번 이상 이용 불가</li>
+          <li data-lang="p_s6">목숨 걸고 감정적으로 하지 않기</li>
+          <li data-lang="p_s7">아프거나 힘들 경우 즉시 보고</li>
+          <li data-lang="p_s8">운동 내기를 할 경우 서로가 부담되지 않는 선에서 가능</li>
+          <li data-lang="p_s9">웃으면서 즐길 수 있을 정도로만 하기</li>
+          <li data-lang="p_s10">기온이 30도 이상일 경우, 야외 활동 불가 (수영장 등 예외)</li>
+        </ol>
+        <div class="yn">
+          <span class="button1" onclick="closePopup1()" data-lang="popup_cancel">반대합니다</span>
+          <a href="./sports.html" class="button" data-lang="popup_agree">동의합니다</a>
+        </div>
       </div>
-    </div>
-</div>
-
-
+  </div>
 
   <div class="popup2" id="popup2">
-    <div class="popup-sports">
-      <div class="warning">유의사항</div>
+      <div class="popup-content">
+        <div class="warning" data-lang="popup_warn">유의사항</div>
         <ol class="list">
-       <li>목적지까지의 이동시간이 1시간 이내만 가능 
-      </li>
-       <li>처음 하는 운동일 시, 최소 휴식 시간 (20분) 보장 필수
- </li>
-       <li>이틀 연속 이용은 불가능 (최소 하루 휴식 보장)
-      </li>
-       <li>비상 상황에 대처가 불가능함으로 운동 전에
-        스스로 스트레칭하고 안전사고에 유의
-      </li>
-       <li>하루에 두 번 이상 이용 불가
-      </li>
-       <li>목숨 걸고 감정적으로 하지 않기
-      </li>
-       <li>아프거나 힘들 경우 즉시 보고</li>
-       <li>운동 내기를 할 경우 서로가 부담되지 않는 선에서 가능</li>
-       <li>웃으면서 즐길 수 있을 정도로만 하기</li>
-       <li>기온이 30도 이상일 경우, 야외 활동 불가 (수영장 등 예외)</li>
-      </ol>
-      <div class="yn">
-        <span class="button1" onclick="closePopup2()">반대합니다</span>
-        <a href="./sports.html" class="button">동의합니다</a>
-    </div>
-    </div>
-</div>
-
-
-  <div class="popup" id="popup">
-    <div class="popup-content">
-        <div class="warning">유의사항</div>
-        <ol class="list">
-        <li>공포게임을 할 경우 갑작스러운 큰 소리 주의</li>
-       <li>과한 비난 금지, 어떠한 플레이든 따뜻하게 대할 것 </li>
-       <li>보드 게임 시 2시간이 넘어가는 순간 집중력 저하가 일어날 수 있음</li>
-       <li>어떠한 결과든 승복하고 받아들이기
-      </li>
-       <li>시간 연장은 최대 1시간까지 가능</li>
-       <li>부정적인 태도 금지</li>
-       <li>때때로 승패를 받아들이는 데 시간이 걸릴 수도 있음</li>
-       <li>즐기는 것을 최우선으로 하기</li>
-       <li>중간중간 휴식 시간 5분 필수</li>
-       <li>화난다고 물건 험하게 다루지않기</li>
-      </ol>
-      <div class="yn">
-        <span class="button1" onclick="closePopup()">반대합니다</span>
-        <a href="./game.html" class="button">동의합니다</a>
-    </div>
-    </div>
-</div>
-
-
-  <div class="right">
-    <p>상호: 현상상(주)</p>
-    <p>사업자등록번호: 200-00-91600</p>
-    <p>주소: 서울시 성북구 정릉로 77 국민대학교 </p>
-    <p>대표자: 정현상</p>
-    <p>이메일: phenominium@gmail.com</p>
+          <li data-lang="p_m1">매운 요리나 바다향이 강한 음식(ex.굴, 홍합 등) 불가</li>
+          <li data-lang="p_m2">면류를 취식 시, 되도록 소리를 줄이기 </li>
+          <li data-lang="p_m3">가능한 나무 의자나 좌식 테이블보다는 쿠션 의자를 이용하기</li>
+          <li data-lang="p_m4">혼잡한 시간대나 웨이팅이 있는 가게는 가급적 피하기</li>
+          <li data-lang="p_m5">입안에 음식물이 있는 상태로 대화하지 않기</li>
+          <li data-lang="p_m6">같이 수저 세팅하거나, 물 세팅 도와줄 것</li>
+          <li data-lang="p_m7">메뉴 선정을 쉽게 못함으로 주도적으로 메뉴 선정할 것</li>
+          <li data-lang="p_m8">음식 사진 촬영 시 1분 이상 찍지 않기</li>
+          <li data-lang="p_m9">되도록 다양한 메뉴 시키기</li>
+          <li data-lang="p_m10">낮에는 술 마시지 않기</li>
+        </ol>
+        <div class="yn">
+          <span class="button1" onclick="closePopup2()" data-lang="popup_cancel">반대합니다</span>
+          <a href="./meal.html" class="button" data-lang="popup_agree">동의합니다</a>
+        </div>
+      </div>
   </div>
-</div>
 
-<div class="copyrights">
-    © COPYRIGHT 2024. Jeonghyunsang. <br>All Rights Reserved.<br>
-    <a>고객센터 <br>운영시간: 12:00 ~ 17:00</a>
-  
-</div>
-
-<div class="ask">
-
-</div>
-
-<script src="./index.js"></script>
+  <script src="./lang_data.js"></script>
+  <script src="./index.js"></script>
 </body>
 </html>

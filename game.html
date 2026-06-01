@@ -1,143 +1,191 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./game.css">
-</head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kookmin Univ. VCD - 게임 예약</title>
+        <link rel="stylesheet" href="./common.css">
+    </head>
+    <body>
 
+        <div id="app-wrapper">
 
-<a href="./index.html" class="title-header">
-  <h2>Kookmin Univ. VCD
-  </h2>
-</a>
+            <div class="title-header">
+                <a href="./index.html" class="logo-link">
+                    <h2 data-lang="header_title">Kookmin Univ. VCD</h2>
+                </a>
 
-<div class="reservation" >
+                <div class="lang-selector">
+                    <button onclick="setLanguage('ko')" class="active" id="lang-ko">KO</button>
+                    <span class="lang-divider">/</span>
+                    <button onclick="setLanguage('en')" id="lang-en">EN</button>
+                    <span class="lang-divider">/</span>
+                    <button onclick="setLanguage('jp')" id="lang-jp">JP</button>
+                </div>
+            </div>
+            
+            <div class="reservation">
+                <h2 data-lang="reservation_game_title">게임 예약하기</h2>
+            </div>
 
-  <h2> 게임 예약하기
-  </h2>
-</div>
-<div class="date">
-<div class="select">   
-  <button id="show-calendar" class = "button"></button></div>
-</div>
+            <div class="date">
+                <div class="select">
+                    <button id="show-calendar" class="button"></button>
+                </div>
+            </div>
 
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" onclick="scrollCarousel(-1)">&#8249;</button>
 
+                <div class="carousel-container" id="carouselContainer">
+                    <div class="carousel">
+                        <div class="slide"><img src="./img/g1.jpg" alt="Slide 1"></div>
+                        <div class="slide"><img src="./img/g2.JPG" alt="Slide 2"></div>
+                        <div class="slide"><img src="./img/g3.JPG" alt="Slide 3"></div>
+                        <div class="slide"><img src="./img/g4.jpg" alt="Slide 4"></div>
+                        <div class="slide"><img src="./img/g5.JPG" alt="Slide 5"></div>
+                    </div>
+                </div>
 
+                <button class="carousel-btn next-btn" onclick="scrollCarousel(1)">&#8250;</button>
+            </div>
 
-<div class="carousel-container">
-  <div class="carousel">
-      <div class="slide"><img src="/img/g1.jpg" alt="Slide 1"></div>
-      <div class="slide"><img src="/img/g2.JPG" alt="Slide 2"></div>
-      <div class="slide"><img src="/img/g3.JPG" alt="Slide 3"></div>
-      <div class="slide"><img src="/img/g4.jpg" alt="Slide 1"></div>
-      <div class="slide"><img src="/img/g5.JPG" alt="Slide 2"></div>
-      <!-- Add more slides as needed -->
-  </div>
-</div>
+            <div class="grid-container">
+                <div class="grid-item" onclick="selectTime('11:00 ~ 12:00')">11:00 ~ 12:00</div>
+                <div class="grid-item" onclick="selectTime('12:30 ~ 13:30')">12:30 ~ 13:30</div>
+                <div class="grid-item" onclick="selectTime('14:00 ~ 15:00')">14:00 ~ 15:00</div>
+                <div class="grid-item" onclick="selectTime('15:30 ~ 16:30')">15:30 ~ 16:30</div>
+                <div class="grid-item" onclick="selectTime('17:00 ~ 18:00')">17:00 ~ 18:00</div>
+                <div class="grid-item" onclick="selectTime('18:00 ~ 19:00')">18:00 ~ 19:00</div>
+                <div class="grid-item" onclick="selectTime('20:00 ~ 21:00')">20:00 ~ 21:00</div>
+                <div class="grid-item" onclick="selectTime('21:30 ~ 22:30')">21:30 ~ 22:30</div>
+            </div>
 
+            <div class="sec">
+                <div class="review-section">
+                    <div class="pp" data-lang="review_title">후기</div>
+                    <div class="rev">
+                        <div class="re">
+                            <div class="p" data-lang="review_author">익명의 게시자</div>
+                            <div class="r" data-lang="review_g1">게임을 그리 잘하진 않아서 컨트롤 게임보다는 스토리위주를 추천합니다^^</div>
+                        </div>
+                        <div class="re">
+                            <div class="p" data-lang="review_author">익명의 게시자</div>
+                            <div class="r" data-lang="review_g2">가끔식 더티플레이 해서 곤란했습니다... 예를 들어서 같이 마인크래프트 했는데
+                                저를 밀어서 죽이고는 아이템을 다 뺏어갔어요. 그래도 재밌었던 기억입니다...</div>
+                        </div>
+                        <div class="re">
+                            <div class="p" data-lang="review_author">익명의 게시자</div>
+                            <div class="r" data-lang="review_g3">롤 할때 우리 팀이 던져도 잘 참고 겜을 이끌어 가네요</div>
+                        </div>
+                        <div class="re">
+                            <div class="p" data-lang="review_author">익명의 게시자</div>
+                            <div class="r" data-lang="review_g4">관리자에 의해 삭제된 글입니다.</div>
+                        </div>
+                        <div class="re">
+                            <div class="p" data-lang="review_author">익명의 게시자</div>
+                            <div class="r" data-lang="review_g5">레이저 커팅기도 잘 못다루는데 게임을 잘할까요...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<div class="grid-container">
-  <div class="grid-item" onclick="selectTime('11:00 ~ 12:00')">11:00 ~ 12:00</div>
-  <div class="grid-item" onclick="selectTime('12:30 ~ 13:30')">12:30 ~ 13:30</div>
-  <div class="grid-item" onclick="selectTime('14:00 ~ 15:00')">14:00 ~ 15:00</div>
-  <div class="grid-item" onclick="selectTime('15:30 ~ 16:30')">15:30 ~ 16:30</div>
-  <div class="grid-item" onclick="selectTime('17:00 ~ 18:00')">17:00 ~ 18:00</div>
-  <div class="grid-item" onclick="selectTime('18:00 ~ 19:00')">18:00 ~ 19:00</div>
-  <div class="grid-item" onclick="selectTime('20:00 ~ 21:00')">20:00 ~ 21:00</div>
-  <div class="grid-item" onclick="selectTime('21:30 ~ 22:30')">21:30 ~ 22:30</div>
-</div>
+            <footer class="app-footer">
+                <div class="footer-info">
+                    <p>
+                        <span data-lang="footer_company">상호</span>
+                        현상상(주)</p>
+                    <p>
+                        <span data-lang="footer_owner">대표자</span>
+                        정현상</p>
+                    <p>
+                        <span data-lang="footer_biznum">사업자등록번호</span>
+                        200-00-91600</p>
+                    <p>
+                        <span data-lang="footer_addr">주소</span>
+                        서울시 성북구 정릉로 77 국민대학교</p>
+                    <p>
+                        <span data-lang="footer_email">이메일</span>
+                        phenominium@gmail.com</p>
+                </div>
 
+                <div class="footer-bottom">
+                    <div class="cs-center">
+                        <p class="cs-title" data-lang="footer_cs">고객센터</p>
+                        <p data-lang="footer_hours">운영시간 12:00 ~ 17:00</p>
+                    </div>
+                    <p class="copyright">© 2024. Jeonghyunsang. All Rights Reserved.</p>
+                </div>
+            </footer>
 
-<div class="book" id="book" style="display: none;">
-  <form id="bookingForm">
-    <label for="service">서비스:</label><br>
-    <input type="text" id="service" name="service" value="게임" readonly><br>
+        </div>
 
-    <label for="selectedDate">선택한 날짜:</label><br>
-<input type="text" id="selectedDate" name="selectedDate" readonly><br>
+        <div class="book-modal" id="bookModal" style="display: none;">
+            <div class="book-content">
+                <div class="warning" data-lang="modal_game_header">예약 정보 입력</div>
+                <form id="bookingForm" class="gform" method="POST" action="구글스프레드시트웹앱URL">
+                    <div class="form-group">
+                        <label for="service" data-lang="label_service">서비스</label>
+                        <input type="text" id="service" name="service" value="게임" readonly="readonly">
+                    </div>
 
-  
-    <label for="selectedTime">선택한 시간:</label><br>
-    <input type="text" id="selectedTime" name="selectedTime" readonly><br>
-  
-    <label for="name">이름:</label><br>
-    <input type="text" id="name" name="name" required placeholder="홍길동"><br>
-  
-    <label for="phone">전화번호:</label><br>
-    <input type="text" id="phone" name="phone" required placeholder="01000000000" oninput="this.value = this.value.replace(/\D/g, '')"><br>
-  
-    <label for="deliver">전달사항:</label><br>
-    <textarea id="deliver" name="deliver" placeholder="전달사항을 입력하세요"></textarea><br>
-  
-    <button type="submit" class="res">예약</button>
-    <button type="button" onclick="closeBookingForm()" class="cancel">취소</button>
-  </form>
-</div>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="selectedDate" data-lang="label_date">선택 날짜</label>
+                            <input type="text" id="selectedDate" name="selectedDate" readonly="readonly">
+                        </div>
+                        <div class="form-group">
+                            <label for="selectedTime" data-lang="label_time">선택 시간</label>
+                            <input type="text" id="selectedTime" name="selectedTime" readonly="readonly">
+                        </div>
+                    </div>
 
-  <div id="successMessage" style="display: none;" onclick="closeMessage()">
-    예약이 완료되었습니다.
-  </div>
+                    <div class="form-group">
+                        <label for="name" data-lang="label_name">이름</label>
+                        <input type="text" id="name" name="name" required="required" placeholder="홍길동">
+                    </div>
 
-  <div id="errorMessage" style="display: none;">
-    예약 처리 중 오류가 발생했습니다.
-  </div>
-</div>
+                    <div class="form-group">
+                        <label for="phone" data-lang="label_phone">전화번호</label>
+                        <input
+                            type="text"
+                            id="phone"
+                            name="phone"
+                            required="required"
+                            placeholder="010-0000-0000"
+                            oninput="this.value = this.value.replace(/\D/g, '')">
+                    </div>
 
+                    <div class="form-group">
+                        <label for="deliver" data-lang="label_deliver">전달사항</label>
+                        <textarea id="deliver" name="deliver" placeholder="전달사항을 입력하세요"></textarea>
+                    </div>
 
-<div class="sec">
-  <div class="review-section">
-  <div class="pp">후기 </div>
-<div class="rev">
-  <div class="re">
-    <div class="p">익명의 게시자</div>
-    <div class="r">게임을 그리 잘하진 않아서 컨트롤 게임보다는 스토리위주를 추천합니다^^</div>
-  </div>
-  <div class="re">
-    <div class="p">익명의 게시자</div>
-    <div class="r">가끔식 더티플레이 해서 곤란했습니다... 예를 들어서 같이 마인크래프트 했는데 저를 밀어서 죽이고는 아이템을 다 뺏어갔어요. 그래도 재밌었던 기억입니다...</div>
-  </div>
-  <div class="re">
-    <div class="p">익명의 게시자</div>
-    <div class="r">  롤 할때 우리 팀이 던져도 잘 참고 겜을 이끌어 가네요</div>
-  </div>
+                    <div class="yn">
+                        <button
+                            type="button"
+                            onclick="closeBookingForm()"
+                            class="button1"
+                            data-lang="modal_cancel">취소</button>
+                        <button type="submit" class="button" data-lang="modal_confirm">예약 확정</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-  <div class="re">
-    <div class="p">익명의 게시자</div>
-    <div class="r"> 관리자에 의해 삭제된 글입니다.</div>
-  </div>
+        <div id="successMessage" style="display: none;" onclick="closeMessage()">
+            <div class="msg-box" data-lang="success_msg">예약이 완료되었습니다.</div>
+        </div>
 
-  <div class="re">
-    <div class="p">익명의 게시자</div>
-    <div class="r"> 레이저 커팅기도 잘 못다루는데 게임을 잘할까요...</div>
-    </div>
-  </div>
-  </div>
+        <div id="errorMessage" style="display: none;" onclick="closeMessage()">
+            <div class="msg-box err" data-lang="error_msg">예약 처리 중 오류가 발생했습니다.</div>
+        </div>
 
-</div>
-
-
-  <div class="right">
-    <p>상호: 현상상(주)</p>
-    <p>사업자등록번호: 200-00-91600</p>
-    <p>주소: 서울시 성북구 정릉로 77 국민대학교 </p>
-    <p>대표자: 정현상</p>
-    <p>이메일: phenominium@gmail.com</p>
-  </div>
-</div>
-
-
-<div class="copyrights">
-    © COPYRIGHT 2024. Jeonghyunsang. <br>All Rights Reserved.<br>
-    <a>고객센터 <br>운영시간: 12:00 ~ 17:00</a>
-</div>
-
-<div class="ask">
-
-</div>
-<div id="popup-calendar" class="popup-calendar"></div>
-
-<script src="./sports.js"></script>
-<script data-cfasync="false" type="text/javascript"
-src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
-</body>
+        <div id="popup-calendar" class="popup-calendar" style="display: none;"></div>
+        <script src="./lang_data.js"></script>
+        <script src="./reservation.js"></script>
+        <script
+            data-cfasync="false"
+            type="text/javascript"
+            src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+    </body>
 </html>
