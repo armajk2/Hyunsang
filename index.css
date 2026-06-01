@@ -63,7 +63,7 @@ html, body {
     #app-wrapper {
         min-height: unset; 
         width: 450px;       
-        height: 945px;      
+        height: 920px; /* 스마트폰 실물 비율에 맞춰 세로 높이 최적화 */      
         max-width: 450px !important; 
         
         overflow-y: auto;   
@@ -74,13 +74,54 @@ html, body {
         left: 50%;
         transform: translate(-50%, -50%);
 
-        border: 1px solid #111111;
-        border-radius: 40px; 
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        /* ==========================================
+           [디테일 폰 프레임 시스템]
+           ========================================== */
+        /* 1. 하이엔드 스마트폰의 슬림한 유광 블랙 베젤 구현 */
+        border: 12px solid #141414; 
+        border-radius: 48px; /* 둥근 액정 모서리 구현 */
+        
+        /* 2. 기기 실물감과 깊이감을 주는 정교한 다중 레이어 그림자 (유리 질감) */
+        box-shadow: 
+            0 0 0 2px #2c2c2c,                             /* 폰 외곽 금속 테두리 라인 */
+            0 4px 10px rgba(0, 0, 0, 0.15),                /* 내부 액정 그림자 */
+            0 20px 50px rgba(0, 0, 0, 0.18),               /* 기기 전체 하단 음영 */
+            0 40px 100px rgba(17, 17, 17, 0.12);           /* 바닥면에 은은하게 퍼지는 그림자 */
+            
+        background-color: #ffffff;
+        animation: phoneFloat 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
     }
     
+    
+    /* 스크롤바 감추기 기능 유지 */
     #app-wrapper::-webkit-scrollbar {
         display: none;
+    }
+
+    @keyframes phoneFloat {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -30%); /* 살짝 아래에서 위로 */
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%); /* 제자리로 */
+    }}
+
+    /* 3. 상단 카메라/수화부 스피커 아일랜드 디테일 추가 */
+    #app-wrapper::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 6px;
+        background-color: #141414;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        z-index: 999999;
+        opacity: 0.8;
     }
 }
 
