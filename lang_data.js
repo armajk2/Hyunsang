@@ -66,7 +66,7 @@ const langData = {
         'p_m9': '되도록 다양한 메뉴 시키기',
         'p_m10': '낮에는 술 마시지 않기',
         // 서브 페이지 공용 서식 및 알림
-        'reservation_game_title': '게임 예약하기',
+        'reservation_game_title': '게임',
         'review_title': '후기',
         'review_author': '익명의 게시자',
         'review_g1': '게임을 그리 잘하진 않아서 컨트롤 게임보다는 스토리위주를 추천합니다^^',
@@ -86,8 +86,8 @@ const langData = {
         'success_msg': '예약이 완료되었습니다.',
         'error_msg': '예약 처리 중 오류가 발생했습니다.',
         // 운동 페이지 서브 키
-        'sport_title': '운동 예약하기',
-        'sport_heading': '운동 예약하기',
+        'sport_title': '운동',
+        'sport_heading': '운동',
         'review_anonymous': '익명의 게시자',
         'review_sport_1': '탁구를 쳤는데 내가 잘 못하니까 봐주셨음 감사합니다 굿 스포츠맨쉽',
         'review_sport_2': '두시간동안 공차는 거 연습했는데 왜이렇게 못하나요 이사람',
@@ -108,8 +108,8 @@ const langData = {
         'btn_submit': '예약',
 
         // ─── ★ [신규 반영] 식사(Meal) 예약 페이지 고유 번역 데이터 세트 ───
-        'meal_title': '식사 예약하기',
-        'meal_heading': '식사 예약하기',
+        'meal_title': '식사',
+        'meal_heading': '식사',
         'modal_meal_header': '예약 정보 입력',
         'review_m_1': '치킨을 같이 먹었습니다. 이상하게 다리가 없어서 이상하다 생각했는데 현상이 형이 두루다 먹어치운거였어요 그래놓고 저에게는 목을 양보하덥니다',
         'review_m_2': '맨날 뭐 먹을래 하면 안골라서 제가 고르게 만들어요,,,, 하지만 제가 먹고 싶은거 먹을 수 있다는게 장점이에요!',
@@ -185,7 +185,7 @@ const langData = {
         'p_m9': 'Try to order a variety of menus if possible.',
         'p_m10': 'No drinking alcohol during the day.',
         // 서브 페이지 공용 서식 및 알림
-        'reservation_game_title': 'Book a GAME',
+        'reservation_game_title': 'GAME',
         'review_title': 'Reviews',
         'review_author': 'Anonymous Poster',
         'review_g1': 'Since I\'m not very good at games, I recommend story-focused games over complex control games^^',
@@ -205,8 +205,8 @@ const langData = {
         'success_msg': 'Booking complete.',
         'error_msg': 'An error occurred during booking.',
         // 운동 페이지 서브 키
-        'sport_title': 'Book Sports',
-        'sport_heading': 'Book Sports',
+        'sport_title': 'Sports',
+        'sport_heading': 'Sports',
         'review_anonymous': 'Anonymous',
         'review_sport_1': 'We played table tennis, and they went easy on me because I wasn\'t good. Thanks! Good sportsmanship.',
         'review_sport_2': 'We practiced kicking the ball for two hours, why is this person so bad at it?',
@@ -227,8 +227,8 @@ const langData = {
         'btn_submit': 'Book',
 
         // ─── ★ [신규 반영] 식사(Meal) 예약 페이지 고유 번역 데이터 세트 ───
-        'meal_title': 'Book a Meal',
-        'meal_heading': 'Book a Meal',
+        'meal_title': 'Meal',
+        'meal_heading': 'Meal',
         'modal_meal_header': 'Enter Booking Info',
         'review_m_1': 'We ate chicken together. Strangely, there were no drumsticks, which I found odd, but it turned out Hyunsang hyung devoured them all. Then he graciously offered me the neck.',
         'review_m_2': 'Whenever I ask him what he wants to eat, he never chooses and makes me pick... But the advantage is that I get to eat exactly what I want!',
@@ -304,7 +304,7 @@ const langData = {
         'p_m9': 'なるべく多様なメニューを注文すること。',
         'p_m10': '昼間の飲酒は控えること。',
         // 서브 페이지 공용 서식 및 알림
-        'reservation_game_title': 'ゲームを予約する',
+        'reservation_game_title': 'ゲーム',
         'review_title': 'レビュー',
         'review_author': '匿名投稿者',
         'review_g1': 'ゲームはあまり得意ではないので、コントローラーゲームよりはストーリー重視をおすすめします^^',
@@ -324,8 +324,8 @@ const langData = {
         'success_msg': '予約が完了しました。',
         'error_msg': '予約処理中にエラーが発生しました。',
         // 운동 페이지 서브 키
-        'sport_title': '運動の予約',
-        'sport_heading': '運動の予約',
+        'sport_title': '運動',
+        'sport_heading': '運動',
         'review_anonymous': '匿名ユーザー',
         'review_sport_1': '卓球をしましたが、私が下手なので手加減してくれました。ありがとう！素晴らしいスポーツマンシップ。',
         'review_sport_2': '2時間サッカーの練習をしたけど、この人なんでこんなに下手なんですか？',
@@ -346,8 +346,8 @@ const langData = {
         'btn_submit': '予約',
 
         // ─── ★ [신규 반영] 식사(Meal) 예약 페이지 고유 번역 데이터 세트 ───
-        'meal_title': '食事の予約',
-        'meal_heading': '食事の予約',
+        'meal_title': '食事',
+        'meal_heading': '食事',
         'modal_meal_header': '予約情報の入力',
         'review_m_1': 'チキンを一緒に食べました。不思議なことにドラムスティック（脚）がなくて変だなと思ったら、ヒョンサン兄さんが全部平らげていました。そのくせ私には首の部分を譲ってくれました。',
         'review_m_2': 'いつも「何食べたい？」と聞いても選んでくれなくて、私に選ばせます…でも、自分が食べたいものを食べられるのがメリットです！',
