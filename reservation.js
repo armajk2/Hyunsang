@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const bookingForm = document.getElementById('bookingForm');
     const successMessage = document.getElementById('successMessage');
     const errorMessage = document.getElementById('errorMessage');
-    const url = 'https://script.google.com/macros/s/AKfycbwc_3jknr_WPVfCVSzPpe7rDLboe7A4CP6cIKYg5FCCzgIILA7OLfsUEFjO_EZtzBgz/exec';
+    const url = 'https://script.google.com/macros/s/AKfycby927NaECNCrgReyLtahMnRPzVX8aXvLSIczoRpOd-azWslelPmWc5fFHekgWnXwb6p/exec';
 
     if (bookingForm) {
         bookingForm.addEventListener('submit', function(event) {
