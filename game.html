@@ -22,7 +22,7 @@
                     <button onclick="setLanguage('jp')" id="lang-jp">JP</button>
                 </div>
             </div>
-            
+
             <div class="reservation">
                 <h2 data-lang="reservation_game_title">게임 예약하기</h2>
             </div>
@@ -125,7 +125,13 @@
                 <form id="bookingForm" class="gform" method="POST" action="구글스프레드시트웹앱URL">
                     <div class="form-group">
                         <label for="service" data-lang="label_service">서비스</label>
-                        <input type="text" id="service" name="service" value="게임" readonly="readonly">
+                        <input
+                            type="text"
+                            id="service"
+                            name="service"
+                            value="게임"
+                            readonly="readonly"
+                            data-lang-val="menu_game">
                     </div>
 
                     <div class="form-group-row">
@@ -141,7 +147,13 @@
 
                     <div class="form-group">
                         <label for="name" data-lang="label_name">이름</label>
-                        <input type="text" id="name" name="name" required="required" placeholder="홍길동">
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required="required"
+                            placeholder="홍길동"
+                            data-lang-placeholder="placeholder_name">
                     </div>
 
                     <div class="form-group">
@@ -152,12 +164,17 @@
                             name="phone"
                             required="required"
                             placeholder="010-0000-0000"
-                            oninput="this.value = this.value.replace(/\D/g, '')">
+                            oninput="this.value = this.value.replace(/\D/g, '')"
+                            data-lang-placeholder="placeholder_phone">
                     </div>
 
                     <div class="form-group">
                         <label for="deliver" data-lang="label_deliver">전달사항</label>
-                        <textarea id="deliver" name="deliver" placeholder="전달사항을 입력하세요"></textarea>
+                        <textarea
+                            id="deliver"
+                            name="deliver"
+                            placeholder="전달사항을 입력하세요"
+                            data-lang-placeholder="placeholder_deliver"></textarea>
                     </div>
 
                     <div class="yn">
