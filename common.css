@@ -779,7 +779,7 @@ textarea {
     position: fixed;
     background-color: white;
     border: 1px solid #111111;
-    padding: 16px 24px;
+    padding: 36px 24px;
     width: 80%;
     max-width: 360px;
     transform: translate(-50%, -50%);
